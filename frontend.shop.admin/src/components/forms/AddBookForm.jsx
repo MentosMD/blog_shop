@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class Main extends React.Component
+export default class AddBookForm extends React.Component
 {
     constructor(props)
     {
@@ -10,9 +10,7 @@ export default class Main extends React.Component
     render()
     {
         return(
-            <div>
-                <h2>Admin Panel</h2>
-            </div>
+            <div>Add book form</div>
         );
     }
 }
