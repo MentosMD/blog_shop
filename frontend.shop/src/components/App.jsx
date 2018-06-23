@@ -8,7 +8,6 @@ import MainPage from './MainPage.jsx'
 import DetailBook from './DetailBook.jsx'
 import OrderForm from './FormOrder.jsx'
 
-import Main from './Admin/Main.jsx'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import '../assets/app.styl'
