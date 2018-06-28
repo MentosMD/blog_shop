@@ -43,16 +43,17 @@ class BookItem extends React.Component
 
     render()
     {
+        let { image, title, price, id } = this.props.data;
         return(
             <div className="row book-item">
                 <NotificationSystem ref="notificationSystem" />
                 <div className="col-md-4">
-                    <img src={require(`../assets/img/${this.props.data.image}`)} width={100} height={100} />
+                    <img src={require(`../assets/img/${image}`)} width={100} height={100} />
                 </div>
-                <p>{this.props.data.title}</p>
-                <strong className="price">{this.props.data.price}$</strong>
+                <p>{title}</p>
+                <strong className="price">{price}$</strong>
                 <div className="row display-flex-end">
-                    <Link className="btn btn-outline-primary" style={{marginRight: '10px'}} to={"/book/detail/" + this.props.data.id}>Detail</Link>
+                    <Link className="btn btn-outline-primary" style={{marginRight: '10px'}} to={"/book/detail/" + id}>Detail</Link>
                     <button className="btn btn-outline-info" onClick={this._addToCart}>Add To Cart</button>
                 </div>
             </div>
@@ -87,7 +88,6 @@ export default class BooksList extends React.Component
 
     _onChange(e)
     {
-        console.log(e.target.value);
         this.setState({ title: e.target.value });
     }
 

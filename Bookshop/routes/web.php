@@ -19,9 +19,10 @@ Route::post('/api/book/genre/search', 'BookController@getByGenre')->name('filter
 Route::get('/api/genre/{id}', 'BookController@getGenreById')->name('genre_single');
 Route::get('/api/genres', 'BookController@getAllGenres')->name('genres');
 Route::post('/api/order/add', 'OrderController@addOrder')->name('add-order');
+Route::post('/api/book/search/by/price', 'BookController@getByPrice')->name('search-book-price');
 
 /* Admin's routers */
-Route::get('/api/admin/book/all', 'AdminController@getAllBook');
+Route::get('/api/admin/books', 'AdminController@getAllBook');
 Route::post('/api/admin/book/add', 'AdminController@addBook');
 Route::put('/api/admin/book/edit', 'AdminController@editBook');
 Route::get('/api/admin/book/delete/{id}', 'AdminController@deleteBook');

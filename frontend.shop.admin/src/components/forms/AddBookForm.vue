@@ -2,7 +2,9 @@
     <div class="row">
         <head-component></head-component>
         <div class="container">
-            <h2>Add book form</h2>
+            <form method="post" class="col-md-8">
+                <b-form-input class="form__input" placeholder="Title"></b-form-input>
+            </form>
         </div>
     </div>
 </template>

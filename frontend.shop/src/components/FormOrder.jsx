@@ -20,6 +20,7 @@ export default class FormOrder extends React.Component
         this._onSubmit = this._onSubmit.bind(this);
         this._total = this._total.bind(this);
         this._addNotification = this._addNotification.bind(this);
+        this._onReset = this._onReset.bind(this);
     }
 
     _addNotification(msg, level)
@@ -59,6 +60,11 @@ export default class FormOrder extends React.Component
         return total;
     }
 
+    _onReset()
+    {
+        this.form.reset();
+    }
+
     _onSubmit(e)
     {
         e.preventDefault();
@@ -96,7 +102,9 @@ export default class FormOrder extends React.Component
                 <Head/>
                 <NotificationSystem ref="notificationSystem" />
                 <div className="container display-flex">
-                     <form method="POST" onSubmit={this._onSubmit}>
+                     <form method="POST"
+                           onSubmit={this._onSubmit}
+                           ref={form => { this.form = form; }}>
                          <div className="row">
                              <TextField type="text"
                                  placeholder="Name"
@@ -148,6 +156,7 @@ export default class FormOrder extends React.Component
                              />
                          </div>
                          <div className="row display-flex">
+                             <button type="button" className="btn btn-outline-primary" onClick={this._onReset}>Reset</button>
                              <button type="submit" className="btn btn-outline-success">Send</button>
                          </div>
                      </form>

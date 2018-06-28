@@ -1,6 +1,5 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router';
-import VueBootstrapTable from 'vue-bootstrap-table2';
+import VueBootstrapTable from 'vue2-bootstrap-table2';
 import Notifications from 'vue-notification';
 
 import App from './App.vue'

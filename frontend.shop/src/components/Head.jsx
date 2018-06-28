@@ -13,7 +13,7 @@ export default class Head extends React.Component
             <div className="row clearfix">
                 <nav className="row menu">
                     <ul>
-                        <li><a href="/">Books</a></li>
+                        <li><a href="/">Religious books</a></li>
                         <li><a href="/shopcart">
                             <i className="fas fa-shopping-bag" style={{fontSize: '25px'}}></i>
                             <h4>{sessionStorage.length > 0 ? sessionStorage.length : null}</h4>

@@ -14,6 +14,5 @@ export default new VueRouter({
         { path: '/admin/orders', mode: 'history', name: 'orders', component: OrdersPage },
         { path: '/admin/book/add', mode: 'history', name: 'add_book', component: AddBookForm },
         { path: '/admin/book/edit', mode: 'history', name: 'edit_book', component: EditBookForm }
-
     ]
 })

@@ -59,4 +59,12 @@ class BookController extends Controller
                            ->get();
         return response()->json(['success' => 'OK', 'response' => $bookBygenre], 200);
     }
+
+    public function getByPrice(Request $request)
+    {
+        $priceFrom = $request->input('priceFrom');
+        $priceTo = $request->input('priceTo');
+        $sql = "SELECT * FROM Book WHERE price > $priceFrom AND price < $priceTo ORDER BY DESC";
+        return response()->json(['success' => 'OK'], 200);
+    }
 }

@@ -1,14 +1,16 @@
 <template>
    <div>
      <head-component></head-component>
-     <h1>Hello!</h1>
+     <books-component></books-component>
    </div>
 </template>
 <script>
 import Head from './Head.vue';
+import BooksList from './BooksList.vue'
 export default {
     components: {
-        'head-component': Head
+        'head-component': Head,
+        'books-component': BooksList
     }
 }
 </script>

@@ -39,13 +39,14 @@ class ItemCart extends React.Component
 
     render()
     {
+        let { image, title, price } = this.props.data;
         return(
             <div className="row" style={{padding: '5px', height: '109px'}}>
                     <div className="col-md-2">
-                        <img src={require(`../assets/img/${this.props.data.image}`)} width={100} height={100} />
+                        <img src={require(`../assets/img/${image}`)} width={100} height={100} />
                     </div>
                     <div className="col-md-2 padd-0" style={{lineHeight: '92px'}}>
-                        <p>{this.props.data.title}</p>
+                        <p>{title}</p>
                     </div>
                     <div className="col-md-2">
                          <TextField type="number"
@@ -55,7 +56,7 @@ class ItemCart extends React.Component
                          />
                     </div>
                     <div className="col-md-6" style={{display: 'flex', justifyContent: 'flex-end'}}>
-                        <strong className="book-price">{this.props.data.price * this.state.quantity}$</strong>
+                        <strong className="book-price">{price * this.state.quantity}$</strong>
                         <div className="col-md-1">
                             <button type="button" className="btn btn-outline-danger" onClick={this._removeItem}>
                                 <i className="fas fa-trash-alt"></i>
