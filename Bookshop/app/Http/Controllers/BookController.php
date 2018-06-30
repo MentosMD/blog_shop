@@ -64,7 +64,9 @@ class BookController extends Controller
     {
         $priceFrom = $request->input('priceFrom');
         $priceTo = $request->input('priceTo');
-        $sql = "SELECT * FROM Book WHERE price > $priceFrom AND price < $priceTo ORDER BY DESC";
-        return response()->json(['success' => 'OK'], 200);
+        $res = DB::table('books')
+                   ->select()->where('price', '>=', $priceFrom)
+                   ->where('price', '<=', $priceTo)->get();
+        return response()->json(['success' => 'OK', 'response' => $res], 200);
     }
 }

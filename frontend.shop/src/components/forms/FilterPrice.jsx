@@ -1,6 +1,7 @@
 import React from 'react'
 import TextField from '../TextField.jsx'
 import axios from 'axios'
+import * as config from '../../config'
 
 export default class FilterPrice extends React.Component
 {
@@ -17,42 +18,42 @@ export default class FilterPrice extends React.Component
 
     _onChange(e)
     {
+        let { name, value } = e.target;
+        let state = this.state;
+        state[name] = value;
+        this.props.onChange(e);
+        this.setState(state);
 
     }
 
     _onSubmit(e)
     {
-        e.preventDefault();
-        axios.post()
-            .then((data) => {
-                console.log(data);
-            }).catch((err) => {
-                console.log(err);
-            })
+        this.props.onSubmit(e);
     }
 
     render(){
         return(
             <div className="row">
                  <div className="container">
-                     <form method="post" action="#" onSubmit={this._onSubmit}>
+                     <form method="post" action="#" onSubmit={this._onSubmit} className="row">
                          <div className="col-md-1">
                              <span>From</span>
                              <TextField type="text"
-                                        placeholder="0"
                                         value={this.state.priceFrom}
-                                        name="price_from"
+                                        name="priceFrom"
                                         onChange={this._onChange}
                              />
                          </div>
                          <div className="col-md-1">
                              <span>To</span>
                              <TextField type="text"
-                                        placeholder="0"
                                         value={this.state.priceTo}
-                                        name="price_to"
+                                        name="priceTo"
                                         onChange={this._onChange}
                              />
+                         </div>
+                         <div className="col-md-1">
+                             <button type="submit" className="btn btn-success">Apply</button>
                          </div>
                      </form>
                  </div>

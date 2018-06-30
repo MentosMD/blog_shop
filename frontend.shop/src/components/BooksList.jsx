@@ -7,6 +7,7 @@ import Pagination from './Pagination.jsx'
 import FormFilter from './forms/FormFilter.jsx'
 import * as config from '../config'
 import {Link} from 'react-router-dom'
+import FilterPrice from './forms/FilterPrice.jsx'
 
 class BookItem extends React.Component
 {
@@ -74,6 +75,8 @@ export default class BooksList extends React.Component
         this.onChangePage = this.onChangePage.bind(this);
         this._onChange = this._onChange.bind(this);
         this._onSubmit = this._onSubmit.bind(this);
+        this._onFilterPrice = this._onFilterPrice.bind(this);
+        this._onChangePrice = this._onChangePrice.bind(this);
     }
 
     componentDidMount()
@@ -84,6 +87,28 @@ export default class BooksList extends React.Component
             }).catch((err) => {
                 console.log(err);
             });
+    }
+
+    _onChangePrice(e)
+    {
+        let state = this.state;
+        state[e.target.name] = e.target.value;
+        this.setState(state);
+    }
+
+    _onFilterPrice(e)
+    {
+        e.preventDefault();
+        axios.post(config.API_BOOK_BY_PRICE, {
+            priceFrom: this.state.priceFrom,
+            priceTo: this.state.priceTo
+        })
+            .then((data) => {
+                console.log(data.data.response);
+                this.setState({ data: data.data.response });
+            }).catch((err) => {
+            console.log(err);
+        })
     }
 
     _onChange(e)
@@ -121,6 +146,8 @@ export default class BooksList extends React.Component
             <div className="row clearfix">
                 <FormFilter onChange={this._onChange}
                         onSubmit={this._onSubmit}/>
+                <FilterPrice onSubmit={this._onFilterPrice}
+                             onChange={this._onChangePrice}/>
                 {items}
                 <div className="row margin-top-30">
                     <Pagination items={this.state.data} onChangePage={this.onChangePage}/>
