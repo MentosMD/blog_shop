@@ -104,7 +104,6 @@ export default class BooksList extends React.Component
             priceTo: this.state.priceTo
         })
             .then((data) => {
-                console.log(data.data.response);
                 this.setState({ data: data.data.response });
             }).catch((err) => {
             console.log(err);

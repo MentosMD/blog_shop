@@ -23,7 +23,6 @@ export default class FilterPrice extends React.Component
         state[name] = value;
         this.props.onChange(e);
         this.setState(state);
-
     }
 
     _onSubmit(e)

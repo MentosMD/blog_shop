@@ -1,17 +1,18 @@
 <template>
     <div class="row">
         <div class="container">
-            <vue-bootstrap-table
-                    :columns="columns"
-                    :values="values"
-                    :show-filter="true"
-                    :show-column-picker="true"
-                    :sortable="true"
-                    :paginated="true"
-                    :multi-column-sortable=true
-                    :filter-case-sensitive=false>
-
-            </vue-bootstrap-table>
+            <b-table striped hover
+                     :items="books"
+                     :fields="fields">
+                <template slot="Delete" slot-scope="data">
+                    <button class="btn btn-outline-danger" @click="deleteBook(data.item.id)">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </template>
+                <template slot="Edit" slot-scope="data">
+                    <router-link v-bind:to="`admin/book/edit/${data.item.id}`" class="btn btn-outline-primary"><i class="fas fa-pencil-alt"></i></router-link>
+                </template>
+            </b-table>
         </div>
     </div>
 </template>
@@ -27,45 +28,31 @@
         data(){
             return{
                 books: [],
-                columns: [
+                fields: [
                     {
-                        title:"id",
+                        key: 'title',
+                        label: 'Title'
                     },
                     {
-                        title:"name",
-                        visible: true,
-                        editable: true,
+                        key: 'author',
+                        label: 'Author'
                     },
                     {
-                        title:"age",
-                        visible: true,
-                        editable: true,
+                        key: 'pages',
+                        label: 'Pages'
                     },
                     {
-                        title:"country",
-                        visible: true,
-                        editable: true,
-                    }
-                ],
-                values: [
-                    {
-                        "id": 1,
-                        "name": "John",
-                        "country": "UK",
-                        "age": 25,
+                        key: 'price',
+                        label: 'Price'
                     },
                     {
-                        "id": 2,
-                        "name": "Mary",
-                        "country": "France",
-                        "age": 30,
+                        key: 'Delete',
+                        label: ''
                     },
                     {
-                        "id": 3,
-                        "name": "Ana",
-                        "country": "Portugal",
-                        "age": 20,
-                    }
+                        key: 'Edit',
+                        label: ''
+                    },
                 ]
             }
         },
@@ -76,6 +63,12 @@
                 }).catch((err) => {
                    console.log(err);
                 })
+        },
+        methods: {
+            deleteBook(id)
+            {
+                console.log(id);
+            }
         }
     }
 </script>

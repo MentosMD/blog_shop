@@ -91,7 +91,6 @@ export default class FormOrder extends React.Component
                     state.errors[key] = error[key].join();
                 }
             });
-        console.log(state.errors.length);
         this.setState(state);
     }
 
