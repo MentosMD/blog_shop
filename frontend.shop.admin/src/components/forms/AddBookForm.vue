@@ -23,6 +23,15 @@
                                   type="number"
                                   placeholder="Price"></b-form-input>
                 </div>
+                <div class="col-md-4 margin-top-15">
+                    <b-form-textarea
+                            v-model="book.description"
+                            placeholder="Annotations"
+                            :rows="3"
+                            :max-rows="6"
+                    >
+                    </b-form-textarea>
+                </div>
                 <div class="col-md-1 margin-top-15 offset-md-1">
                     <button type="button" class="btn btn-outline-success">Send</button>
                 </div>

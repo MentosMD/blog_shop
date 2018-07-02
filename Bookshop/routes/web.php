@@ -23,6 +23,7 @@ Route::post('/api/book/search/by/price', 'BookController@getByPrice')->name('sea
 
 /* Admin's routers */
 Route::get('/api/admin/books', 'AdminController@getAllBook');
+Route::get('/api/admin/book/detail/{id}', 'AdminController@getDetailBook');
 Route::post('/api/admin/book/add', 'AdminController@addBook');
 Route::put('/api/admin/book/edit', 'AdminController@editBook');
 Route::get('/api/admin/book/delete/{id}', 'AdminController@deleteBook');

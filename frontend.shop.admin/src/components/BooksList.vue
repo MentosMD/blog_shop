@@ -3,7 +3,12 @@
         <div class="container">
             <b-table striped hover
                      :items="books"
-                     :fields="fields">
+                     :fields="fields"
+                     :current-page="currentPage"
+                     :per-page="perPage"
+                     :filter="filter"
+                     @filtered="onFiltered"
+            >
                 <template slot="Delete" slot-scope="data">
                     <button class="btn btn-outline-danger" @click="deleteBook(data.item.id)">
                         <i class="fas fa-trash-alt"></i>
@@ -12,7 +17,13 @@
                 <template slot="Edit" slot-scope="data">
                     <router-link v-bind:to="`admin/book/edit/${data.item.id}`" class="btn btn-outline-primary"><i class="fas fa-pencil-alt"></i></router-link>
                 </template>
+                <template slot="Detail" slot-scope="data">
+                    <router-link title="Detail" v-bind:to="`admin/book/detail/${data.item.id}`" class="btn btn-outline-primary"><i class="fas fa-eye"></i></router-link>
+                </template>
             </b-table>
+            <div class="row" style="display: flex; justify-content: flex-end">
+                <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="" />
+            </div>
         </div>
     </div>
 </template>
@@ -28,6 +39,10 @@
         data(){
             return{
                 books: [],
+                filter: null,
+                currentPage: 1,
+                perPage: 5,
+                totalRows: 0,
                 fields: [
                     {
                         key: 'title',
@@ -53,6 +68,10 @@
                         key: 'Edit',
                         label: ''
                     },
+                    {
+                        key: 'Detail',
+                        label: ''
+                    },
                 ]
             }
         },
@@ -68,6 +87,10 @@
             deleteBook(id)
             {
                 console.log(id);
+            },
+            onFiltered (filteredItems) {
+                this.totalRows = filteredItems.length;
+                this.currentPage = 1;
             }
         }
     }

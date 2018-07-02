@@ -16,6 +16,16 @@ class AdminController extends Controller
         return response()->json(['Success' => 'OK', 'response' => $books], 200);
     }
 
+    public function getDetailBook(Request $request, $id)
+    {
+        $book = DB::table('books')->find($id);
+        if($book == null)
+        {
+            return response()->json(['error' => true], 404);
+        }
+        return response()->json(['success' => 'OK', 'response' => $book], 200);
+    }
+
     public function editBook(Request $request)
     {
         return response()->json(['Success' => 'OK'], 200);
