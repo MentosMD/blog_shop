@@ -1,8 +1,24 @@
 <template>
      <div class="row">
          <v-head></v-head>
-         <div class="container">
-             {{ id }}
+         <div class="container text-align-center padd-top-55">
+             <h3>{{ this.book.title }}</h3>
+             <h3>{{ this.book.author }}</h3>
+             <h4>{{ this.book.pages }}</h4>
+             <h4>{{ this.book.price }}$</h4>
+             <p>{{ this.book.description }}</p>
+             <div class="row display_flex-center">
+                 <div class="col-md-1">
+                     <router-link v-bind:to="`admin/book/edit/${this.book.id}`" class="btn btn-outline-primary">
+                         <i class="fas fa-pencil-alt"></i>
+                     </router-link>
+                 </div>
+                 <div class="col-md-1">
+                     <button class="btn btn-outline-danger" @click="deleteBook(this.book.id)">
+                         <i class="fas fa-trash-alt"></i>
+                     </button>
+                 </div>
+             </div>
          </div>
      </div>
 </template>
@@ -28,6 +44,16 @@
                 }).catch((err) => {
                   console.log(err);
             })
+        },
+        methods:{
+            deleteBook(id){
+                axios.get(config.API_ADMIN_BOOK_DELETE + this.book.id)
+                    .then((data) => {
+                        window.location.reload();
+                    }).catch((err) => {
+                        console.log(err);
+                    })
+            }
         }
     }
 </script>
