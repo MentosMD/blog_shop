@@ -22,9 +22,13 @@ Route::post('/api/order/add', 'OrderController@addOrder')->name('add-order');
 Route::post('/api/book/search/by/price', 'BookController@getByPrice')->name('search-book-price');
 
 /* Admin's routers */
-Route::get('/api/admin/books', 'AdminController@getAllBook');
-Route::get('/api/admin/book/detail/{id}', 'AdminController@getDetailBook');
-Route::post('/api/admin/book/add', 'AdminController@addBook');
-Route::put('/api/admin/book/edit', 'AdminController@editBook');
-Route::get('/api/admin/book/delete/{id}', 'AdminController@deleteBook');
-Route::get('/api/admin/orders', 'AdminController@getAllOrders');
+Route::prefix('api/admin')->group(function (){
+    Route::get('books', 'AdminController@getAllBook');
+    Route::get('book/detail/{id}', 'AdminController@getDetailBook');
+    Route::post('book/add', 'AdminController@addBook');
+    Route::put('book/update', 'AdminController@updateBook');
+    Route::get('book/delete/{id}', 'AdminController@deleteBook');
+    Route::get('orders', 'AdminController@getAllOrders');
+    Route::get('order/{id}', 'AdminController@getDetailOrder');
+    Route::post('image/upload', 'AdminController@addImageBook');
+});

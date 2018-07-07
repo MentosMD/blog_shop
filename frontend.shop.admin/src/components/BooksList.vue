@@ -84,9 +84,24 @@
                 })
         },
         methods: {
+            notify(text, type){
+                this.$notify({
+                    group: 'example',
+                    text: text,
+                    type: type
+                });
+            },
             deleteBook(id)
             {
-                console.log(id);
+                axios.get(config.API_ADMIN_BOOK_DELETE + id)
+                    .then((data) => {
+                        this.notify('Successfully deleted!', 'success');
+                        setTimeout(() => {
+                            location.replace('/');
+                        }, 1000);
+                    }).catch((err) => {
+
+                });
             },
             onFiltered (filteredItems) {
                 this.totalRows = filteredItems.length;

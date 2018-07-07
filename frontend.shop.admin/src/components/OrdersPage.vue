@@ -6,7 +6,7 @@
                      :items="orders"
                      :fields="fields">
                 <template slot="Detail" slot-scope="data">
-                    <router-link title="Detail" v-bind:to="`admin/order/detail/${data.item.OrderId}`" class="btn btn-outline-primary">
+                    <router-link title="Detail" v-bind:to="`order/detail/${data.item.OrderId}`" class="btn btn-outline-primary">
                         <i class="fas fa-eye"></i>
                     </router-link>
                 </template>

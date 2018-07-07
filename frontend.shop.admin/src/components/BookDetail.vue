@@ -46,10 +46,21 @@
             })
         },
         methods:{
+            notify(text, type){
+                this.$notify({
+                    group: 'example',
+                    text: text,
+                    type: type
+                });
+            },
             deleteBook(id){
-                axios.get(config.API_ADMIN_BOOK_DELETE + this.book.id)
+                let self = this;
+                axios.get(config.API_ADMIN_BOOK_DELETE + id)
                     .then((data) => {
-                        window.location.reload();
+                        self.notify('Successfully removed!', 'success');
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 1000);
                     }).catch((err) => {
                         console.log(err);
                     })
