@@ -52,6 +52,7 @@ class AdminController extends Controller
         $author = $request->input('author');
         $price = $request->input('price');
         $pages = $request->input('pages');
+        $image = $request->input('image');
 
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:255',
@@ -71,15 +72,15 @@ class AdminController extends Controller
            'description' => $description,
            'author' => $author,
            'price' => $price,
-           'pages' => $pages
+           'pages' => $pages,
+           'image' => $image
         ];
         $book = new Book();
         $book->insert($resp);
         return response()->json(['Success' => 'OK'], 200);
     }
 
-    public function updateBook(Request $request, $id){
-        $book = DB::table('books')->find($id);
+    public function updateBook(Request $request){
         $valid = Validator::make($request->all(), [
             'title' => 'required|max:255',
             'description' => 'required|max:500',
@@ -87,11 +88,19 @@ class AdminController extends Controller
             'price' => 'required',
             'pages' => 'required'
         ]);
-        $input = $request->all();
+        $title = $request->input('title');
+        $description = $request->input('description');
+        $author = $request->input('author');
+        $price = $request->input('price');
+        $pages = $request->input('pages');
+        $image = $request->input('image');
         if($valid->fails()){
             return response()->json(['errors' => $valid->errors()]);
         }
-        $book->update($input);
+        DB::table('books')
+            ->where('id', $request->input('id'))
+            ->update(['title' => $title, 'description' => $description, 'author' => $author,
+                    'price' => $price, 'pages' => $pages, 'image' => $image]);
         return response()->json(['Success' => 'OK'], 200);
     }
 
@@ -101,22 +110,17 @@ class AdminController extends Controller
         return response()->json(['Success' => 'OK', 'response' => $orders], 200);
     }
 
-    public function addImageBook(Request $request){
-        if(!$request->hasFile('file'))
-            return response()->json([
-                'error' => 'No File Uploaded'
-            ]);
+    public function deleteOrder(Request $request, $id)
+    {
+        Order::where('id', $id)->delete();
+        return response()->json(['Success' => 'OK'], 200);
+    }
 
-        $file = $request->file('file');
-
-        if(!$file->isValid())
-            return response()->json([
-                'error' => 'File is not valid!'
-            ]);;
-
-        $file->store('public/images');
-            return response()->json([
-                'success' => 'File Uploaded'
-            ]);
+    public function addImageBook(Request $request)
+    {
+        if($request->hasFile('image')){
+            return response()->json('True');
         }
+        return response()->json('False');
+    }
 }

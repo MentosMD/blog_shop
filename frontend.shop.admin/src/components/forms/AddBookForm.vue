@@ -2,7 +2,7 @@
     <div class="row">
         <head-component></head-component>
         <div class="container padd-top-55">
-            <form method="post" class="col-md-8 offset-md-4" @submit.prevent="onSubmit">
+            <form method="post" class="col-md-8 offset-md-4">
                 <div class="col-md-4">
                     <div v-if="img.length > 0">
                         <img :src="img" width="100" height="100" />
@@ -41,7 +41,7 @@
                     </b-form-textarea>
                 </div>
                 <div class="col-md-1 margin-top-15 offset-md-1">
-                    <button type="submit" class="btn btn-outline-success">Send</button>
+                    <button type="button" class="btn btn-outline-success" @click="onSubmit">Send</button>
                 </div>
             </form>
         </div>
@@ -79,12 +79,9 @@
             },
             onSubmit(e) {
                 let self = this;
-                axios.get(config.API_ADMIN_BOOK_ADD, self.book)
+                axios.post(config.API_ADMIN_BOOK_ADD, self.book)
                     .then((data) => {
                         this.notify('Successfully added book!', 'success');
-                        setTimeout(() => {
-                             window.location.replace('/');
-                        }, 1000)
                     }).catch((err) => {
                         console.log(err.status);
                         switch(err.status){
@@ -107,6 +104,11 @@
                     self.img = e.target.result;
                 };
                 reader.readAsDataURL(file);
+            },
+            testImage(){
+                // axios.post('/api/admin/image/upload', {
+                //     image: this.img
+                // }).then((data) => {}).catch((err) => {});
             }
         }
     }

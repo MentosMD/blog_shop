@@ -21,6 +21,9 @@
             <h3>Phone: {{ this.order.phone }}</h3>
             <h3>Email: {{ this.order.email }}</h3>
             <button class="btn btn-outline-success" @click="showModal">Orders</button>
+            <button class="btn btn-outline-danger" @click="deleteOrder">
+                <i class="fas fa-trash-alt"></i>
+            </button>
         </div>
     </div>
 </template>
@@ -50,12 +53,27 @@
             });
         },
         methods: {
+            notify(text, type){
+                this.$notify({
+                    group: 'example',
+                    text: text,
+                    type: type
+                });
+            },
             hideModal () {
                 this.$refs.ModalRef.hide();
             },
             showModal () {
                 this.$refs.ModalRef.show();
             },
+            deleteOrder(){
+                axios.get(config.API_ADMIN_DELETE_ORDER + this.order.OrderId)
+                    .then((data) => {
+                        this.notify('Successfully deleted!', 'error');
+                        location.replace('#/admin/orders');
+                    })
+                    .catch((err) => {});
+            }
         }
     }
 </script>

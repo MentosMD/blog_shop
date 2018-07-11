@@ -20,7 +20,6 @@ class BooksGenres extends Migration
             $table->integer('pages');
             $table->float('price');
             $table->string('image');
-            $table->integer('genre_id')->unsigned();
         });
 
         Schema::create('genres', function (Blueprint $table){

@@ -26,9 +26,10 @@ Route::prefix('api/admin')->group(function (){
     Route::get('books', 'AdminController@getAllBook');
     Route::get('book/detail/{id}', 'AdminController@getDetailBook');
     Route::post('book/add', 'AdminController@addBook');
-    Route::put('book/update', 'AdminController@updateBook');
+    Route::post('book/update', 'AdminController@updateBook');
     Route::get('book/delete/{id}', 'AdminController@deleteBook');
     Route::get('orders', 'AdminController@getAllOrders');
     Route::get('order/{id}', 'AdminController@getDetailOrder');
+    Route::get('order/delete/{id}', 'AdminController@deleteOrder');
     Route::post('image/upload', 'AdminController@addImageBook');
 });

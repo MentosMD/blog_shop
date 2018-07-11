@@ -41,14 +41,7 @@
         },
         data(){
             return {
-                book:
-                    {
-                      title: '',
-                      pages: null,
-                      author: '',
-                      price: null,
-                      description: ''
-                    }
+                book: {}
             }
         },
         mounted(){

@@ -9,11 +9,6 @@
              <p>{{ this.book.description }}</p>
              <div class="row display_flex-center">
                  <div class="col-md-1">
-                     <router-link v-bind:to="`admin/book/edit/${this.book.id}`" class="btn btn-outline-primary">
-                         <i class="fas fa-pencil-alt"></i>
-                     </router-link>
-                 </div>
-                 <div class="col-md-1">
                      <button class="btn btn-outline-danger" @click="deleteBook(this.book.id)">
                          <i class="fas fa-trash-alt"></i>
                      </button>

@@ -17,8 +17,7 @@ class BooksTableSeeder extends Seeder
             'author' => 'Josh Kerem',
             'pages' => 244,
             'price' => 10,
-            'image' => 'magic2.jpg',
-            'genre_id' => 1
+            'image' => 'magic2.jpg'
         ]);
 
         DB::table('books')->insert([
@@ -27,8 +26,7 @@ class BooksTableSeeder extends Seeder
             'author' => 'Josh Kerem',
             'pages' => 344,
             'price' => 13,
-            'image' => 'magic3.jpeg',
-            'genre_id' => 1
+            'image' => 'magic3.jpeg'
         ]);
 
         DB::table('books')->insert([
@@ -37,8 +35,7 @@ class BooksTableSeeder extends Seeder
             'author' => 'Josh Kerem',
             'pages' => 284,
             'price' => 15.50,
-            'image' => 'magic4.jpg',
-            'genre_id' => 1
+            'image' => 'magic4.jpg'
         ]);
 
         DB::table('books')->insert([
@@ -47,8 +44,7 @@ class BooksTableSeeder extends Seeder
             'author' => 'Steve Spilberg',
             'pages' => 454,
             'price' => 20.50,
-            'image' => 'first_player.jpg',
-            'genre_id' => 2
+            'image' => 'first_player.jpg'
         ]);
 
         DB::table('books')->insert([
@@ -57,8 +53,7 @@ class BooksTableSeeder extends Seeder
             'author' => 'Bert Narith',
             'pages' => 314,
             'price' => 17.00,
-            'image' => 'the_psycho.jpg',
-            'genre_id' => 2
+            'image' => 'the_psycho.jpg'
         ]);
 
         DB::table('books')->insert([
@@ -67,8 +62,7 @@ class BooksTableSeeder extends Seeder
             'author' => 'Sarabject Kaur',
             'pages' => 214,
             'price' => 12.00,
-            'image' => 'human_psycho.jpg',
-            'genre_id' => 2
+            'image' => 'human_psycho.jpg'
         ]);
 
         DB::table('books')->insert([
@@ -77,8 +71,7 @@ class BooksTableSeeder extends Seeder
             'author' => 'William Bussik',
             'pages' => 364,
             'price' => 24.00,
-            'image' => 'psycho_major.jpeg',
-            'genre_id' => 2
+            'image' => 'psycho_major.jpeg'
         ]);
 
         DB::table('books')->insert([
@@ -87,8 +80,7 @@ class BooksTableSeeder extends Seeder
             'author' => 'Eric Berne',
             'pages' => 564,
             'price' => 21.00,
-            'image' => 'psycho_play.jpg',
-            'genre_id' => 3
+            'image' => 'psycho_play.jpg'
         ]);
 
         DB::table('books')->insert([
@@ -97,8 +89,7 @@ class BooksTableSeeder extends Seeder
             'author' => 'Alex Liney',
             'pages' => 564,
             'price' => 21.00,
-            'image' => 'positive_psycho.jpeg',
-            'genre_id' => 3
+            'image' => 'positive_psycho.jpeg'
         ]);
 
         DB::table('books')->insert([
@@ -107,8 +98,7 @@ class BooksTableSeeder extends Seeder
             'author' => 'Loreto V',
             'pages' => 524,
             'price' => 14.75,
-            'image' => 'general_psycho.jpeg',
-            'genre_id' => 3
+            'image' => 'general_psycho.jpeg'
         ]);
 
         DB::table('books')->insert([
@@ -117,8 +107,7 @@ class BooksTableSeeder extends Seeder
             'author' => 'David Mar',
             'pages' => 224,
             'price' => 13.55,
-            'image' => 'forensis_psycho.jpg',
-            'genre_id' => 3
+            'image' => 'forensis_psycho.jpg'
         ]);
     }
 }

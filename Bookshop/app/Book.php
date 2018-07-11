@@ -15,9 +15,4 @@ class Book extends Model
         'title', 'price', 'pages', 'author', 'description', 'image'
     ];
     protected $table = "books";
-
-    public function genre()
-    {
-        return $this->hasMany(Genre::class);
-    }
 }
