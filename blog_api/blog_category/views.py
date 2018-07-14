@@ -1,8 +1,8 @@
 from flask import Blueprint
 from flask import jsonify
 
-main = Blueprint('main', __name__)
+category = Blueprint('category', __name__)
 
-@main.route('/list')
-def main():
+@category.route('/')
+def index():
     return 'Category'
