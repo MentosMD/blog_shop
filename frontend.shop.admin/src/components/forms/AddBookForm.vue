@@ -12,26 +12,31 @@
                     </div>
                 </div>
                 <div class="col-md-4 margin-top-15">
+                    <label class="text-danger">{{ errors.title }}</label>
                     <b-form-input v-model="book.title"
                                   type="text"
                                   placeholder="Title"></b-form-input>
                 </div>
                 <div class="col-md-4 margin-top-15">
+                    <label class="text-danger">{{ errors.author }}</label>
                     <b-form-input v-model="book.author"
                                   type="text"
                                   placeholder="Author"></b-form-input>
                 </div>
                 <div class="col-md-4 margin-top-15">
+                    <label>{{ errors.pages }}</label>
                     <b-form-input v-model.number="book.pages"
                                   type="text"
                                   placeholder="Pages"></b-form-input>
                 </div>
                 <div class="col-md-4 margin-top-15">
+                    <label class="text-danger">{{ errors.price }}</label>
                     <b-form-input v-model.number="book.price"
                                   type="number"
                                   placeholder="Price"></b-form-input>
                 </div>
                 <div class="col-md-4 margin-top-15">
+                    <label class="text-danger">{{ errors.description }}</label>
                     <b-form-textarea
                             v-model="book.description"
                             placeholder="Annotations"
@@ -64,9 +69,16 @@
                     author: '',
                     price: null,
                     description: '',
-                    img: ''
+                    image: 'example'
                 },
-                img: ''
+                img: '',
+                errors: {
+                    title: '',
+                    author: '',
+                    pages: null,
+                    price: null,
+                    description: ''
+                }
             }
         },
         methods: {
@@ -82,8 +94,13 @@
                 axios.post(config.API_ADMIN_BOOK_ADD, self.book)
                     .then((data) => {
                         this.notify('Successfully added book!', 'success');
+                        this.errors = {};
                     }).catch((err) => {
-                        console.log(err.status);
+                        let errors = err.response.data[0];
+                        for(let attr in errors)
+                        {
+                            self.errors[attr] = errors[attr].join();
+                        }
                         switch(err.status){
                             case 500:
                                 this.notify('Service is not working!', 'error');
@@ -114,6 +131,6 @@
     }
 </script>
 
-<style scoped>
+<style lang="stylus" scoped>
 
 </style>

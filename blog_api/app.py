@@ -1,5 +1,6 @@
 from flask import Flask
-from routers import main
+from blog.views import main
+from blog_category.views import category
 from flaskext.mysql import MySQL
 
 app = Flask(__name__)
@@ -11,7 +12,7 @@ app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
 app.register_blueprint(main, url_prefix='/blog')
-app.register_blueprint(main, url_prefix='/blog/category')
+app.register_blueprint(category, url_prefix='/blog/category')
 
 if __name__ == '__main__':
     app.run()

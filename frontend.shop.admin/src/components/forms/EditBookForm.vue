@@ -2,7 +2,7 @@
     <div class="row">
         <v-head></v-head>
         <div class="container text-align-center padd-top-55">
-            <form method="post" action="#" class="offset-md-4" @submit.prevent="onSubmit">
+            <form method="post" action="" class="offset-md-4" @submit.prevent="onSubmit">
                 <div class="col-md-4 margin-top-15">
                     <b-form-input v-model="book.title"
                                   type="text"

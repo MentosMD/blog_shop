@@ -65,7 +65,7 @@ class AdminController extends Controller
         if($validator->fails())
         {
             $msg = $validator->errors();
-            return response()->json([$msg], 404);
+            return response()->json([$msg], 400);
         }
         $resp = [
            'title' => $title,
