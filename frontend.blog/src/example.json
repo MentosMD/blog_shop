@@ -1,17 +1,20 @@
 [
   {
+      "id": 1,
       "title": "Example",
       "body": "ExampleExampleExampleExample",
       "date": "02/02/2018",
       "author": "Steve Rojers"
   },
   {
+    "id": 2,
     "title": "Example 2",
     "body": "ExampleExampleExampleExample",
     "date": "05/02/2018",
     "author": "Maria Lopic"
   },
   {
+    "id": 3,
     "title": "Example 3",
     "body": "ExampleExampleExampleExample",
     "date": "22/02/2018",

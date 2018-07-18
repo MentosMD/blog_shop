@@ -95,7 +95,7 @@ class AdminController extends Controller
         $pages = $request->input('pages');
         $image = $request->input('image');
         if($valid->fails()){
-            return response()->json(['errors' => $valid->errors()]);
+            return response()->json(['errors' => $valid->errors()], 400);
         }
         DB::table('books')
             ->where('id', $request->input('id'))
