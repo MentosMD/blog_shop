@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="container">
+        <div class="container list">
             <ul>
                 <li v-for="category in categories">
                       <v-category :name="category.name"></v-category>
@@ -29,5 +29,6 @@
 </script>
 
 <style lang="stylus" scoped>
-
+    .list ul li
+         list-style none
 </style>

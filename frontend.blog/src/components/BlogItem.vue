@@ -1,26 +1,25 @@
 <template>
-     <div class="row blog-item">
-          <ul class="row padd-top-50">
-             <li v-for="blog in blogs" class="row margin-bott-20">
-                  <router-link v-bind:to="`blog/detail/${blog.id}`" class="blog-item-title link">
-                      {{ blog.title }}
-                  </router-link>
-                  <p class="blog-item-body">{{ blog.body }}</p>
-                  <div class="col-md-8 float-right">
-                      <small class="blog-item-small">{{ blog.author }}</small>
-                      <small class="blog-item-small">{{ blog.date }}</small>
-                  </div>
-             </li>
-          </ul>
+     <div class="row">
+         <router-link v-bind:to="`blog/detail/${id}`" class="blog-item-title link">
+             {{ title }}
+         </router-link>
+         <p class="blog-item-body">{{ body }}</p>
+         <div class="col-md-8 float-right">
+             <small class="blog-item-small">{{ author }}</small>
+             <small class="blog-item-small">{{ date }}</small>
+         </div>
      </div>
 </template>
 
 <script>
     export default {
         props: {
-            blogs: {
-                type: Array
-            }
+            blogs: {type: Array},
+            id: {type: Number},
+            title: {type: String},
+            body: {type: String},
+            author: {type: String},
+            date: {type: String}
         },
         data(){
             return {
@@ -31,9 +30,6 @@
 </script>
 
 <style lang="stylus" scoped>
-    .blog-item ul li
-        list-style none
-        border-bottom 2px solid #2c6823
     .blog-item-title
         font-size 20px
         font-style oblique
