@@ -14,11 +14,12 @@ class CommentRepository
 {
     public function all()
     {
-
+        return Comment::all();
     }
 
-    public function create($comment)
+    public function create($resp)
     {
-
+        $comment = new Comment();
+        $comment->insert($resp);
     }
 }

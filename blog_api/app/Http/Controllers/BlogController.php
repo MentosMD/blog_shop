@@ -13,9 +13,27 @@ class BlogController extends Controller
     function __construct()
     { $this->repository = new BlogRepository(); }
 
-    public function index()
+    public function index(Request $request)
     {
-        $this->repository->getAll();
-        return response()->json("Hello", 200);
+        $blogs = $this->repository->getAll();
+        if(count($blogs) == 0)
+        {
+            return response()->json(['success' => 'OK', 'response' => 'Have not blogs'], 200);
+        }
+        return response()->
+              json(['success' => 'OK', 'response' => $blogs], 200);
+    }
+
+    public function getById(Request $request, $id)
+    {
+        $find = $this->repository->getBlog($id);
+        return response()->json(['success' => 'OK', 'response' => $find], 200);
+    }
+
+    public function searchById(Request $request)
+    {
+        $title = $request->input('title');
+        $result = $this->repository->searchBlog($title);
+        return response()->json(['success' => 'OK', 'response' => $result]);
     }
 }

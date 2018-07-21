@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->string('comment_body');
             $table->string('name');
             $table->string('email');
-            $table->date('created_date');
+            $table->string('created_date');
             $table->integer('blog_id');
             $table->timestamps();
         });

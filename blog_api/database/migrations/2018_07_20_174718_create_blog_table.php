@@ -18,7 +18,7 @@ class CreateBlogTable extends Migration
             $table->string('blog_title');
             $table->string('blog_body');
             $table->string('blog_author');
-            $table->date('created_date');
+            $table->string('created_date');
             $table->timestamps();
         });
     }

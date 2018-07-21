@@ -21,6 +21,8 @@ class BlogRepository
     public function searchBlog($title)
     {
         return DB::table('blog')
-                ->where('title', $title);
+                ->where('title', $title)
+                ->orderByDesc('title')
+                ->get();
     }
 }
