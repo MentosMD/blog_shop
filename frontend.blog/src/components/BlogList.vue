@@ -23,7 +23,7 @@
     import axios from 'axios';
     import BlogItem from './BlogItem.vue';
     import Pagination from './Pagination.vue';
-    import example from '../example';
+    import * as config from '../config';
     export default {
         components: {
            'blog-item': BlogItem,
@@ -31,12 +31,14 @@
         },
         data(){
             return {
-                blogs: example,
+                blogs: [],
                 search: ''
             }
         },
         mounted(){
-
+            axios.get(config.API_BLOG_ALL)
+                .then((data) => { this.blogs = data.data.response; })
+                .catch(err => {});
         }
     }
 </script>

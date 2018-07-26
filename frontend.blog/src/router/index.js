@@ -13,6 +13,6 @@ export default new VueRouter({
         { path: '/', mode: 'history', name: 'main', component: MainPage },
         { path: '/prayers', mode: 'history', name: 'prayer', component: PrayerPage },
         { path: '/categories', mode: 'history', name: 'category', component: CategoriesPage },
-        { path: '/blog/detail/{id}', mode: 'history', name: 'blog_detail', component: BlogDetail },
+        { path: '/blog/detail/:id', mode: 'history', name: 'blog_detail', component: BlogDetail },
     ]
 })

@@ -1,56 +1,36 @@
 <template>
-    <div class="row">
-         <form method="post" action="" @submit.prevent="onSubmit">
-              <div class="col-md-4">
-                  <b-form-input v-model="comment.name"
-                                type="text"
-                                placeholder="Name"
-                                required></b-form-input>
-              </div>
-              <div class="col-md-4">
-                  <b-form-input v-model="comment.email"
-                                type="email"
-                                placeholder="Email"
-                                required></b-form-input>
-              </div>
-              <div class="col-md-4">
-                  <b-form-textarea
-                          v-model="comment.body"
-                          placeholder="Comments..."
-                          :rows="3"
-                          :max-rows="6"
-                          required
-                  >
-                  </b-form-textarea>
-              </div>
-             <div class="col-md-1">
-                 <button type="submit">
-                     Add comment
-                 </button>
-             </div>
-         </form>
+    <div class="row blog-comments">
+        <div class="comment" v-for="comment in comments">
+            <h4>{{ comment.name }}</h4>
+            <p>{{ comment.comment_body }}</p>
+            <span>{{ comment.created_date }}</span>
+        </div>
     </div>
 </template>
 
 <script>
     export default {
-        data(){
-            return {
-                comment: {
-                    name: '',
-                    email: '',
-                    body: ''
-                }
+        props: {
+            comments: {
+                type: Array,
+                required: true
             }
         },
-        methods: {
-            onSubmit(e) {
-                e.preventDefault();
+        data() {
+            return {
+
             }
         }
     }
 </script>
 
-<style scoped>
-
+<style lang="stylus" scoped>
+    .blog-comments
+         display list-item
+         list-style none
+    .comment
+        border 2px solid gray
+        margin-top 20px
+        padding-left 11px
+        height 140px
 </style>

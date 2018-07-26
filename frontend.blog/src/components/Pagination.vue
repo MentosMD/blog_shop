@@ -4,11 +4,11 @@
             <li class="row" v-for="p in paginatedData">
                  <v-blog
                     :id="p.id"
-                    :title="p.title"
-                    :body="p.body"
-                    :author="p.author"
-                    :date="p.date"></v-blog>
-            </li>roller
+                    :title="p.blog_title"
+                    :body="p.blog_body"
+                    :author="p.blog_author"
+                    :date="p.created_date"></v-blog>
+            </li>
         </ul>
         <button class="btn btn-outline-primary"
                 :disabled="pageNumber === 0"
