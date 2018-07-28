@@ -22,6 +22,7 @@ class CommentController extends Controller
         $email = $request->input('email');
         $comment_body = $request->input('comment');
         $created_date = date("d/m/Y");
+        $blog_id = $request->input('blog_id');
 
         $validator = \Validator::make($request->all(), [
              'name' => 'required|max:100',
@@ -36,18 +37,11 @@ class CommentController extends Controller
             'name' => $name,
             'email' => $email,
             'comment_body' => $comment_body,
-            'created_date' => $created_date
+            'created_date' => $created_date,
+            'blog_id' => $blog_id
         ];
         $comment = new Comment();
         $comment->insert($resp);
         return response()->json(['success' => 'OK', 'response' => 'Successfully added!'], 200);
-    }
-
-    public function getId(Request $request, $id)
-    {
-        $blog_comm = DB::table('comments')->select()
-                       ->where('blog_id', $id)
-                       ->get();
-        return response()->json(['success' => 'OK', 'response' => $blog_comm], 200);
     }
 }

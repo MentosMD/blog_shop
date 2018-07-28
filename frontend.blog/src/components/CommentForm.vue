@@ -33,7 +33,12 @@
 </template>
 
 <script>
+    import axios from 'axios';
+    import * as config from '../config';
     export default {
+        props: {
+           id: {type: Number, required: true}
+        },
         data(){
             return {
                 comment: {
@@ -46,6 +51,20 @@
         methods: {
             onSubmit(e) {
                 e.preventDefault();
+                let { name, email, body } = this.comment;
+                console.log({
+                    name: name,
+                    email: email,
+                    body: body,
+                    blog_id: id
+                });
+                // axios.post(config.API_COMMENT_ADD, {
+                //      name: name,
+                //      email: email,
+                //      body: body,
+                //      blog_id: id
+                // }).then(data => { location.reload(); })
+                //     .catch(err => {});
             }
         }
     }

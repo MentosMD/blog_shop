@@ -2,17 +2,19 @@
     <div class="row">
         <div class="container padd-20">
             <div class="col-md-5">
-                <div class="col-md-11 float-left">
-                    <b-form-input v-model="search"
-                                  type="text"
-                                  placeholder="Search..."
-                                  required></b-form-input>
-                </div>
-                <div class="col-md-1 float-right">
-                    <button class="btn btn-outline-primary">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
+                <form method="post" action="#">
+                    <div class="col-md-11 float-left">
+                        <b-form-input v-model="search"
+                                      type="text"
+                                      placeholder="Search..."
+                                      required></b-form-input>
+                    </div>
+                    <div class="col-md-1 float-right">
+                        <button type="button" @click="onSubmit" class="btn btn-outline-primary">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
             <v-pagination :listData="blogs"></v-pagination>
         </div>
@@ -39,6 +41,14 @@
             axios.get(config.API_BLOG_ALL)
                 .then((data) => { this.blogs = data.data.response; })
                 .catch(err => {});
+        },
+        methods: {
+            onSubmit(e) {
+                axios.post(config.API_BLOG_SEARCH, {title: this.search})
+                    .then(data => {
+                        this.blogs = data.data.response;
+                    }).catch(err => {});
+            }
         }
     }
 </script>

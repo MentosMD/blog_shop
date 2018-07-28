@@ -15,16 +15,16 @@
       <file leaf-file-name="App.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/App.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
+            <state relative-caret-position="279">
               <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BooksList.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BooksList.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/BooksList.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
+            <state relative-caret-position="4402">
               <caret line="151" column="27" selection-start-line="151" selection-start-column="27" selection-end-line="151" selection-end-column="27" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
@@ -33,10 +33,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Head.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/Head.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="FilterPrice.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/forms/FilterPrice.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
+            <state relative-caret-position="341">
               <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
@@ -48,8 +57,8 @@
       <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="186">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -57,8 +66,8 @@
       <file leaf-file-name="FormOrder.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/FormOrder.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+            <state relative-caret-position="124">
+              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -94,12 +103,12 @@
         <option value="$PROJECT_DIR$/webpack.config.dev.js" />
         <option value="$PROJECT_DIR$/src/components/App.jsx" />
         <option value="$PROJECT_DIR$/src/components/ShopCart.jsx" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/src/components/Head.jsx" />
         <option value="$PROJECT_DIR$/src/config.js" />
         <option value="$PROJECT_DIR$/src/components/FormOrder.jsx" />
         <option value="$PROJECT_DIR$/src/components/forms/FilterPrice.jsx" />
         <option value="$PROJECT_DIR$/src/components/BooksList.jsx" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/src/components/Head.jsx" />
       </list>
     </option>
   </component>
@@ -131,7 +140,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -161,11 +169,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../frontend.blog.admin" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -236,11 +245,13 @@
       <workItem from="1530375518054" duration="924000" />
       <workItem from="1530377344252" duration="835000" />
       <workItem from="1531944855165" duration="46000" />
+      <workItem from="1532762328633" duration="434000" />
+      <workItem from="1532777061880" duration="60000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69702000" />
+    <option name="totallyTimeSpent" value="70196000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
@@ -249,16 +260,16 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32755905" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24942264" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -570,7 +581,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/App.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
+        <state relative-caret-position="279">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
@@ -592,20 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Head.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/forms/FormFilter.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-28">
@@ -615,21 +612,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/FormOrder.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        <state relative-caret-position="124">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="186">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/forms/FilterPrice.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
+        <state relative-caret-position="341">
           <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
@@ -637,13 +634,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/BooksList.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
+        <state relative-caret-position="4402">
           <caret line="151" column="27" selection-start-line="151" selection-start-column="27" selection-end-line="151" selection-end-column="27" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Head.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
         </state>
       </provider>
     </entry>

@@ -8,7 +8,7 @@
               </div>
               <v-comments :comments="this.comments"></v-comments>
               <div class="container">
-                  <v-comment-form></v-comment-form>
+                  <v-comment-form :id="this.$route.params.id"></v-comment-form>
               </div>
           </div>
       </div>
@@ -37,10 +37,10 @@
         },
         mounted(){
             axios.get(config.API_BLOG_GET + this.$route.params.id)
-                .then(data => { this.blog = data.data.response; })
-                .catch(err => {});
-            axios.get(config.API_COMMENT_GET + this.$route.params.id)
-                .then(data => { this.comments = data.data.response; })
+                .then(data => {
+                    this.blog = data.data.response.blog;
+                    this.comments = data.data.response.comments;
+                })
                 .catch(err => {});
         },
         methods: {

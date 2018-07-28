@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "comment_body": "It's amazing!",
+    "name": "Josh",
+    "email": "josh@gmail.com",
+    "created_date": "02/02/2018",
+    "blog_id": 1
+  },
+  {
+    "id": 2,
+    "comment_body": "How to understand that?",
+    "name": "Marh",
+    "email": "marh@gmail.com",
+    "created_date": "02/02/2018",
+    "blog_id": 1
+  },
+  {
+    "id": 3,
+    "comment_body": "You are cool man!",
+    "name": "Aliona",
+    "email": "aliona@gmail.com",
+    "created_date": "18/02/2018",
+    "blog_id": 2
+  },
+  {
+    "id": 4,
+    "comment_body": "+",
+    "name": "Mark",
+    "email": "mark@gmail.com",
+    "created_date": "18/02/2018",
+    "blog_id": 2
+  },
+  {
+    "id": 5,
+    "comment_body": "++++",
+    "name": "Mather",
+    "email": "mather@gmail.com",
+    "created_date": "19/02/2018",
+    "blog_id": 2
+  },
+  {
+    "id": 6,
+    "comment_body": "?!?!?!",
+    "name": "Lora",
+    "email": "lora@gmail.com",
+    "created_date": "19/02/2018",
+    "blog_id": 2
+  }
+]
