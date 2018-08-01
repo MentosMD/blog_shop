@@ -20,14 +20,15 @@ class CommentController extends Controller
     {
         $name = $request->input('name');
         $email = $request->input('email');
-        $comment_body = $request->input('comment');
-        $created_date = date("d/m/Y");
+        $comment_body = $request->input('comment_body');
+        $created_date = date("Y-m-d");
         $blog_id = $request->input('blog_id');
 
         $validator = \Validator::make($request->all(), [
              'name' => 'required|max:100',
              'email' => 'required|email|max:100',
-             'comment_body' => 'required|max|1000'
+             'comment_body' => 'required|max|1000',
+             'blog_id' => 'required'
         ]);
         if($validator->fails())
         {

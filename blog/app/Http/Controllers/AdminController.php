@@ -47,6 +47,28 @@ class AdminController extends Controller
         return response()->json(['success' => 'OK'], 200);
     }
 
+    public function addBlog(Request $request)
+    {
+        $valid = Validator::make($request->all(), [
+            'blog_title' => 'required|max:255',
+            'blog_body' => 'required|max:1000'
+        ]);
+        if($valid->fails()) {
+            return response()->json(['success' => 'OK', 'response' => $valid->errors()], 200);
+        }
+        $blog_title = $request->input('blog_title');
+        $blog_body = $request->input('blog_body');
+        $resp = [
+            'blog_title' => $blog_title,
+            'blog_body' => $blog_body,
+            'blog_author' => 'Admin',
+            'created_date' => date("Y-m-d")
+        ];
+        $blog = new Blog();
+        $blog->insert($resp);
+        return response()->json(['success' => 'OK'], 200);
+    }
+
     public function getAllComments()
     {
         $comments = Comment::all();

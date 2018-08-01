@@ -6,3 +6,9 @@ export const API_BLOG_SEARCH = URL_BASE + '/api/v1/blog/search';
 
 export const API_COMMENT_ADD = URL_BASE + '/api/v1/comment/add';
 
+export const API_USER_REGISTER = URL_BASE + '/api/v1/user/register';
+export const API_USER_LOGIN = URL_BASE + '/api/v1/user/login';
+
+export const API_PROFILE = URL_BASE + '/api/v1/profile';
+export const API_PROFILE_UPDATE = URL_BASE + '/api/v1/profile/update';
+

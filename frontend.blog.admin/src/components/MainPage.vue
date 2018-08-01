@@ -6,11 +6,11 @@
 </template>
 <script>
 import Head from './Head.vue';
-import BlogList from './BlogList.vue';
+import BlogsPage from './BlogsPage.vue';
 export default {
     components: {
         'head-component': Head,
-        'blog-list': BlogList
+        'blog-list': BlogsPage
     }
 }
 </script>

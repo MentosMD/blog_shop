@@ -2,9 +2,9 @@
     <div class="container">
          <nav class="row menu">
              <ul>
-                 <li><a href="/">Blog</a></li>
-                 <li><a href="#/prayers">Prayers</a></li>
-                 <li><a target="_blank" href="http://localhost:2000/">Shop</a></li>
+                 <li><a href="/">Main</a></li>
+                 <li><a href="#/admin/comments">Comments</a></li>
+                 <li><a href="#/admin/blog/add">Add new blog</a></li>
              </ul>
          </nav>
     </div>
