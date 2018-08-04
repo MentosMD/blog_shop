@@ -23,6 +23,7 @@ Route::post('/api/v1/user/login', 'AuthController@login');
 
 Route::post('/api/v1/profile', 'ProfileController@index');
 Route::post('/api/v1/profile/update', 'ProfileController@update');
+Route::post('/api/v1/user/blogs', 'ProfileController@getBlogsUser');
 
 /* Admin's routers */
 Route::prefix('api/v1')->group(function () {

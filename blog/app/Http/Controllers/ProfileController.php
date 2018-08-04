@@ -47,4 +47,19 @@ class ProfileController extends Controller
                 ->update(['firstname' => $first_name, 'lastname' => $last_name, 'age' => $age]);
         return response()->json(['success' => 'OK'], 200);
     }
+
+    public function getBlogsUser(Request $request)
+    {
+       $token = $request->input('token');
+       $user = DB::table('blog_user')->where('token', '=', $token)
+                ->get();
+       $user_id = null;
+       foreach ($user as $u) {
+           $user_id = $u->id;
+       }
+       $blogs = DB::table('blog')
+                    ->where('user_id', '=', $user_id)
+                    ->get();
+       return response()->json(['success' => 'OK', 'response' => $blogs], 200);
+    }
 }

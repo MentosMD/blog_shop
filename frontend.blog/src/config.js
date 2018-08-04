@@ -11,4 +11,5 @@ export const API_USER_LOGIN = URL_BASE + '/api/v1/user/login';
 
 export const API_PROFILE = URL_BASE + '/api/v1/profile';
 export const API_PROFILE_UPDATE = URL_BASE + '/api/v1/profile/update';
+export const API_USER_BLOGS = URL_BASE + '/api/v1/user/blogs';
 

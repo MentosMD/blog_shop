@@ -14,19 +14,19 @@ class BlogsTableSeeder extends Seeder
         DB::table('blog')->insert([
               'blog_title' => 'What Is the Bible?',
               'blog_body' => 'example',
-              'blog_author' => 'Admin',
+              'user_id' => 1,
               'created_date' => '02/02/2018'
         ]);
         DB::table('blog')->insert([
             'blog_title' => 'Bible Facts',
             'blog_body' => 'example',
-            'blog_author' => 'Admin',
+            'user_id' => 1,
             'created_date' => '22/06/2018'
         ]);
         DB::table('blog')->insert([
             'blog_title' => 'Who wrote the Bible?',
             'blog_body' => 'example',
-            'blog_author' => 'Admin',
+            'user_id' => 2,
             'created_date' => '17/07/2018'
         ]);
     }

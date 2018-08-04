@@ -27,7 +27,7 @@
                     </form>
                 </b-tab>
                 <b-tab title="Articles" >
-
+                    <blogs-table :blogs="blogs"></blogs-table>
                 </b-tab>
             </b-tabs>
         </div>
@@ -38,9 +38,11 @@
     import axios from 'axios';
     import Head from './Head.vue';
     import * as config from '../config';
+    import ArticlesProfile from './ArticlesProfile.vue';
     export default {
         components: {
-            'v-head': Head
+            'v-head': Head,
+            'blogs-table': ArticlesProfile
         },
         data() {
             return {
@@ -49,7 +51,8 @@
                     firstname: '',
                     lastname: '',
                     age: ''
-                }
+                },
+                blogs: []
             }
         },
         mounted() {
@@ -58,6 +61,11 @@
             }).then(data => {
                     this.user = data.data.response[0];
                 }).catch(err => {});
+
+            axios.post(config.API_USER_BLOGS, {
+                token: this.token
+            }).then(data => this.blogs = data.data.response)
+                .catch(err => {});
         },
         methods: {
             onSubmit(e) {
