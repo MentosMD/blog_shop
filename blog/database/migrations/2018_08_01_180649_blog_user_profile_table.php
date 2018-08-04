@@ -13,12 +13,13 @@ class BlogUserProfileTable extends Migration
      */
     public function up()
     {
-        Schema::table('user_profile', function (Blueprint $table) {
+        Schema::create('user_profile', function (Blueprint $table) {
              $table->increments('id');
              $table->string('firstname');
              $table->string('lastname');
              $table->integer('age');
              $table->integer('user_id');
+             $table->timestamps();
         });
     }
 
@@ -29,6 +30,6 @@ class BlogUserProfileTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('user_profile');
     }
 }

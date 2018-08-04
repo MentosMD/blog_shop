@@ -13,8 +13,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'token'
+        'id', 'login', 'email', 'password', 'token'
     ];
-
+    public $timestamps = false;
     protected $table = "blog_user";
 }

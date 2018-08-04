@@ -19,6 +19,7 @@ class BlogUserTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('token');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +30,6 @@ class BlogUserTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('blog_user');
     }
 }

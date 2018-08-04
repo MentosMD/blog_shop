@@ -1,8 +1,35 @@
 <template>
     <div class="row">
         <v-head></v-head>
-        <div class="container">
-            My profile
+        <div class="container padd-top-55">
+            <h3 class="txt-center">My profile</h3>
+            <b-tabs>
+                <b-tab title="Update Profile" active>
+                    <form method="post" action="#" @submit.prevent="onSubmit" class="col-md-8 offset-md-4">
+                        <div class="col-md-4 margin-top-15">
+                            <b-form-input v-model="user.firstname"
+                                          type="text"
+                                          placeholder="First name"></b-form-input>
+                        </div>
+                        <div class="col-md-4 margin-top-15">
+                            <b-form-input v-model="user.lastname"
+                                          type="text"
+                                          placeholder="Last name"></b-form-input>
+                        </div>
+                        <div class="col-md-4 margin-top-15">
+                            <b-form-input v-model="user.age"
+                                          type="text"
+                                          placeholder="Age"></b-form-input>
+                        </div>
+                        <div class="row margin-top-15 offset-md-1">
+                            <button type="submit" class="btn btn-outline-success">Update</button>
+                        </div>
+                    </form>
+                </b-tab>
+                <b-tab title="Articles" >
+
+                </b-tab>
+            </b-tabs>
         </div>
     </div>
 </template>
@@ -17,15 +44,37 @@
         },
         data() {
             return {
-                token: localStorage.getItem('access_token')
+                token: localStorage.getItem('access_token'),
+                user: {
+                    firstname: '',
+                    lastname: '',
+                    age: ''
+                }
             }
         },
         mounted() {
-
+            axios.post(config.API_PROFILE, {
+                token: this.token
+            }).then(data => {
+                    this.user = data.data.response[0];
+                }).catch(err => {});
+        },
+        methods: {
+            onSubmit(e) {
+                let self = this;
+                axios.post(config.API_PROFILE_UPDATE, {
+                    first_name: self.user.firstname,
+                    last_name: self.user.lastname,
+                    age: self.user.age,
+                    token: this.token
+                }).then(data => { location.reload(); })
+                  .catch(err => {});
+            }
         }
     }
 </script>
 
-<style scoped>
-
+<style lang="stylus" scoped>
+    .txt-center
+        text-align center
 </style>
