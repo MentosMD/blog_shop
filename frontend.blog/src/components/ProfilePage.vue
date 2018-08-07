@@ -21,10 +21,21 @@
                                           type="text"
                                           placeholder="Age"></b-form-input>
                         </div>
+                        <div class="col-md-4 margin-top-15">
+                            <b-form-textarea
+                                    v-model="user.about"
+                                    placeholder="About me..."
+                                    :rows="3"
+                                    :max-rows="6"
+                            ></b-form-textarea>
+                        </div>
                         <div class="row margin-top-15 offset-md-1">
                             <button type="submit" class="btn btn-outline-success">Update</button>
                         </div>
                     </form>
+                </b-tab>
+                <b-tab title="Change password">
+                    <pass-change></pass-change>
                 </b-tab>
                 <b-tab title="Articles" >
                     <blogs-table :blogs="blogs"></blogs-table>
@@ -39,10 +50,12 @@
     import Head from './Head.vue';
     import * as config from '../config';
     import ArticlesProfile from './ArticlesProfile.vue';
+    import ChangePassword from './forms/ChangePassword.vue';
     export default {
         components: {
             'v-head': Head,
-            'blogs-table': ArticlesProfile
+            'blogs-table': ArticlesProfile,
+            'pass-change': ChangePassword
         },
         data() {
             return {
@@ -50,7 +63,8 @@
                 user: {
                     firstname: '',
                     lastname: '',
-                    age: ''
+                    age: '',
+                    about: ''
                 },
                 blogs: []
             }

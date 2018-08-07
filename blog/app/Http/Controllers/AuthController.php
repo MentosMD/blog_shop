@@ -69,4 +69,18 @@ class AuthController extends Controller
         }
         return response()->json(['success' => 'OK', 'response' => $token], 200);
     }
+
+    public function updatePassword(Request $request)
+    {
+        $password = $request->input('password');
+        $repeat_password = $request->input('repeat_password');
+        $token = $request->input('token');
+        if ($password != $repeat_password) {
+            return response()->json(['error', 'response' => 'Passwords does not match!'], 400);
+        }
+        DB::table('blog_user')
+            ->where('token', '=', $token)
+            ->update(['password' => $password]);
+        return response()->json(['success' => 'OK'], 200);
+    }
 }

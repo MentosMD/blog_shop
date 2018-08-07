@@ -17,4 +17,9 @@ class User extends Authenticatable
     ];
     public $timestamps = false;
     protected $table = "blog_user";
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'user_id', 'id');
+    }
 }

@@ -18,28 +18,30 @@ class CommentController extends Controller
 
     public function create(Request $request)
     {
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $comment_body = $request->input('comment_body');
+        $comment = $request->input('comment_body');
         $created_date = date("Y-m-d");
         $blog_id = $request->input('blog_id');
+        $token = $request->input('token');
 
         $validator = \Validator::make($request->all(), [
-             'name' => 'required|max:100',
-             'email' => 'required|email|max:100',
-             'comment_body' => 'required|max|1000',
+             'comment' => 'required|max|1000',
              'blog_id' => 'required'
         ]);
         if($validator->fails())
         {
             return response()->json(['success' => 'false', 'response' => $validator->errors()], 400);
         }
+        $user = DB::table('blog_user')
+                ->where('token', '=', $token)->get();
+        $user_id = null;
+        foreach ($user as $u) {
+            $user_id = $u->id;
+        }
         $resp = [
-            'name' => $name,
-            'email' => $email,
-            'comment_body' => $comment_body,
+            'comment' => $comment,
             'created_date' => $created_date,
-            'blog_id' => $blog_id
+            'blog_id' => $blog_id,
+            'user_id' => $user_id
         ];
         $comment = new Comment();
         $comment->insert($resp);

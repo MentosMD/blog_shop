@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\Comment;
+use App\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use App\Repository;
 use Illuminate\Support\Facades\DB;
@@ -24,10 +26,8 @@ class BlogController extends Controller
     public function getById(Request $request, $id)
     {
         $find = Blog::findOrFail($id);
-        $comments = DB::table('comments')->select()
-                    ->where('blog_id', $id)
-                    ->get();
-        return response()->json(['success' => 'OK', 'response' => ['blog' => $find, 'comments' => $comments]], 200);
+        $find->comments;
+        return response()->json(['success' => 'OK', 'response' => ['blog' => $find]], 200);
     }
 
     public function searchById(Request $request)

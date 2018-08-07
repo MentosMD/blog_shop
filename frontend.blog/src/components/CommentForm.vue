@@ -1,18 +1,6 @@
 <template>
     <div class="row padd-top-30">
          <form method="post" action="" @submit.prevent="onSubmit" class="col-md-8 offset-md-4">
-              <div class="col-md-4">
-                  <b-form-input v-model="comment.name"
-                                type="text"
-                                placeholder="Name"
-                                required></b-form-input>
-              </div>
-              <div class="col-md-4 margin-top-15">
-                  <b-form-input v-model="comment.email"
-                                type="email"
-                                placeholder="Email"
-                                required></b-form-input>
-              </div>
               <div class="col-md-4 margin-top-15">
                   <b-form-textarea
                           v-model="comment.body"
@@ -42,29 +30,22 @@
         data(){
             return {
                 comment: {
-                    name: '',
-                    email: '',
                     body: ''
                 }
             }
         },
+        mounted() {
+        },
         methods: {
             onSubmit(e) {
                 e.preventDefault();
-                let { name, email, body } = this.comment;
-                console.log({
-                    name: name,
-                    email: email,
-                    body: body,
-                    blog_id: id
-                });
-                // axios.post(config.API_COMMENT_ADD, {
-                //      name: name,
-                //      email: email,
-                //      body: body,
-                //      blog_id: id
-                // }).then(data => { location.reload(); })
-                //     .catch(err => {});
+                let { body } = this.comment;
+                axios.post(config.API_COMMENT_ADD, {
+                     body: body,
+                     blog_id: this.id,
+                     token: localStorage.getItem('access_token')
+                }).then(data => { location.reload(); })
+                    .catch(err => {});
             }
         }
     }

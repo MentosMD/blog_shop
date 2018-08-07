@@ -12,39 +12,34 @@ class CommentsTableSeeder extends Seeder
     public function run()
     {
         DB::table('comments')->insert([
-             'name' => 'Mike',
-             'email' => 'mike@gmail.com',
-             'comment_body' => 'It is nice article!',
+             'comment' => 'It is nice article!',
              'created_date' => '02/02/2018',
-             'blog_id' => 1
+             'blog_id' => 1,
+             'user_id' => 1
         ]);
         DB::table('comments')->insert([
-            'name' => 'Karl',
-            'email' => 'karl@gmail.com',
-            'comment_body' => 'Very interesting!',
+            'comment' => 'Very interesting!',
             'created_date' => '02/02/2018',
-            'blog_id' => 1
+            'blog_id' => 1,
+            'user_id' => 1
         ]);
         DB::table('comments')->insert([
-            'name' => 'Josh',
-            'email' => 'josh@gmail.com',
-            'comment_body' => 'Very bad!',
+            'comment' => 'Very bad!',
             'created_date' => '22/06/2018',
-            'blog_id' => 2
+            'blog_id' => 2,
+            'user_id' => 2
         ]);
         DB::table('comments')->insert([
-            'name' => 'Aliona',
-            'email' => 'aliona@gmail.com',
-            'comment_body' => 'Wonderful!',
+            'comment' => 'Wonderful!',
             'created_date' => '22/06/2018',
-            'blog_id' => 2
+            'blog_id' => 2,
+            'user_id' => 2
         ]);
         DB::table('comments')->insert([
-            'name' => 'Peter',
-            'email' => 'peter@gmail.com',
-            'comment_body' => 'With God!',
+            'comment' => 'With God!',
             'created_date' => '17/07/2018',
-            'blog_id' => 3
+            'blog_id' => 3,
+            'user_id' => 1
         ]);
     }
 }
