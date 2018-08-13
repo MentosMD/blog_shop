@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
+use App\Rating;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -57,9 +59,49 @@ class ProfileController extends Controller
        foreach ($user as $u) {
            $user_id = $u->id;
        }
-       $blogs = DB::table('blog')
-                    ->where('user_id', '=', $user_id)
-                    ->get();
-       return response()->json(['success' => 'OK', 'response' => $blogs], 200);
+
+       $blogs = Blog::where('user_id', '=', $user_id)
+                ->get();
+       $ratings = array();
+       foreach ($blogs as $blog) {
+           $rate = Rating::where('blog_id', '=', $blog->id)->get();
+           array_push($ratings, $rate);
+       }
+       return response()->json(['success' => 'OK', 'response' => array('blogs' => $blogs,'ratings' => $ratings)], 200);
+    }
+
+    public function addBlog(Request $request)
+    {
+        $token = $request->input('token');
+        $user_id = null;
+        $valid = Validator::make($request->all(), [
+            'blog_title' => 'required|max:255',
+            'blog_body' => 'required|max:1000'
+        ]);
+        if($valid->fails()) {
+            return response()->json(['_error', 'response' => $valid->errors()], 400);
+        }
+        $user = DB::table('blog_user')->where('token', '=', $token)
+            ->get();
+        foreach ($user as $u) {
+            $user_id = $u->id;
+        }
+        $blog_title = $request->input('blog_title');
+        $blog_body = $request->input('blog_body');
+        $resp = [
+            'blog_title' => $blog_title,
+            'blog_body' => $blog_body,
+            'user_id' => $user_id,
+            'created_date' => date("Y-m-d")
+        ];
+        $blog = new Blog();
+        $blog->insert($resp);
+        return response()->json(['success' => 'OK'], 200);
+    }
+
+    public function deleteBlog(Request $request, $id)
+    {
+        Blog::destroy($id);
+        return response()->json(['success' => 'OK']);
     }
 }

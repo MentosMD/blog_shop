@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\Comment;
+use App\Rating;
 use App\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
@@ -27,6 +28,7 @@ class BlogController extends Controller
     {
         $find = Blog::findOrFail($id);
         $find->comments;
+        $find->ratings;
         return response()->json(['success' => 'OK', 'response' => ['blog' => $find]], 200);
     }
 

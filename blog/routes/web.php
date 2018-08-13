@@ -26,6 +26,8 @@ Route::post('/api/v1/user/password/update', 'AuthController@updatePassword');
 Route::post('/api/v1/profile', 'ProfileController@index');
 Route::post('/api/v1/profile/update', 'ProfileController@update');
 Route::post('/api/v1/user/blogs', 'ProfileController@getBlogsUser');
+Route::post('/api/v1/profile/blog/add', 'ProfileController@addBlog');
+Route::get('/api/v1/profile/blog/delete/{id}', 'ProfileController@deleteBlog');
 
 /* Admin's routers */
 Route::prefix('api/v1')->group(function () {

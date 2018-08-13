@@ -11,4 +11,9 @@ class Rating extends Model
     ];
 
     protected $table = "blog_rating";
+
+    public function blog()
+    {
+        return $this->belongsTo(Blog::class, 'id', 'blog_id');
+    }
 }

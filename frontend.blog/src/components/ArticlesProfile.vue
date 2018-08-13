@@ -14,13 +14,19 @@
                 </button>
             </template>
         </b-table>
+        <div class="row">
+            <a href="#/profile/blog/add">Add new article</a>
+        </div>
     </div>
 </template>
 
 <script>
+    import axios from 'axios';
+    import * as config from '../config';
     export default {
         props: {
-           blogs: {type: Array}
+           blogs: {type: Array},
+           ratings: {type: Array}
         },
         data() {
             return {
@@ -40,17 +46,34 @@
                     {
                         key: 'Delete',
                         label: ''
-                    },
+                    }
                 ]
             }
         },
         methods: {
+            notify(text, type){
+                this.$notify({
+                    group: 'example',
+                    text: text,
+                    type: type
+                });
+            },
             onFiltered (filteredItems) {
                 this.totalRows = filteredItems.length;
                 this.currentPage = 1;
             },
             deleteBlog(id) {
-
+                let conf = confirm('Are you really want to delete this blog?');
+                if (conf) {
+                    axios.get(config.API_PROFILE_BLOG_DELETE + id)
+                        .then(data => {
+                            this.notify('Successfully deleted', 'success');
+                            setTimeout(() => {
+                                location.replace('#/profile');
+                            },1500);
+                        })
+                        .catch(err => {});
+                }
             }
         }
 

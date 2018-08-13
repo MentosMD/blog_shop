@@ -6,11 +6,16 @@
                    <h4>{{ blog.blog_title }}</h4>
                    <p>{{ blog.blog_body }}</p>
               </div>
-              <div class="row">
-                  <star-rating v-model="rating"
-                               :star-size="25"
-                                @rating-selected="ratingSelect">
-                  </star-rating>
+              <div class="row position">
+                  <template v-if="token !== null">
+                      <star-rating v-model="rating"
+                                   :star-size="25"
+                                   @rating-selected="ratingSelect">
+                      </star-rating>
+                  </template>
+                  <div class="col-md-2 text-right">
+                      <strong>Rating:</strong> {{_resultRatings(get_ratings)}}
+                  </div>
               </div>
               <v-comments :comments="this.comments"></v-comments>
               <template v-if="token !== null">
@@ -44,14 +49,20 @@
                     blog_body: ''
                 },
                 rating: '',
-                comments: []
+                comments: [],
+                ratings: 0,
+                get_ratings: []
             }
         },
         mounted(){
+            let self = this;
             axios.get(config.API_BLOG_GET + this.$route.params.id)
                 .then(data => {
-                    this.blog = data.data.response.blog;
-                    this.comments = data.data.response.blog.comments;
+                    let res = data.data.response;
+                    self.blog = res.blog;
+                    self.comments = res.blog.comments;
+                    self.get_ratings = res.blog.ratings;
+                    self.ratings =  self._resultRatings(self.ratings);
                 })
                 .catch(err => {});
         },
@@ -62,6 +73,15 @@
                     text: text,
                     type: type
                 });
+            },
+            _resultRatings(rates) {
+                let blogRating = 0;
+                let total = 0;
+                rates.map(i => {
+                     total += i.score;
+                });
+                blogRating = parseInt(total / rates.length);
+                return blogRating;
             },
             ratingSelect(e) {
                 axios.post(config.API_BLOG_RATING, {
@@ -78,6 +98,8 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="stylus" scoped>
+   .position
+       display flex
+       justify-content space-between
 </style>

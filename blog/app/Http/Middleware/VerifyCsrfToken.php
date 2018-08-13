@@ -22,6 +22,7 @@ class VerifyCsrfToken extends Middleware
         '/api/v1/profile/update',
         '/api/v1/user/blogs',
         '/api/v1/user/password/update',
-        '/api/v1/blog/rating'
+        '/api/v1/blog/rating',
+        '/api/v1/profile/blog/add'
     ];
 }

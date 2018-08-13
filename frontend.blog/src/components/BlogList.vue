@@ -28,7 +28,7 @@
     import * as config from '../config';
     export default {
         components: {
-           'blog-item': BlogItem,
+            'blog-item': BlogItem,
             'v-pagination': Pagination
         },
         data(){
@@ -39,7 +39,9 @@
         },
         mounted(){
             axios.get(config.API_BLOG_ALL)
-                .then((data) => { this.blogs = data.data.response; })
+                .then((data) => {
+                    this.blogs = data.data.response;
+                })
                 .catch(err => {});
         },
         methods: {

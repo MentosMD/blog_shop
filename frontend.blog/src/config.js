@@ -14,4 +14,5 @@ export const API_USER_UPDATE_PASSWORD = URL_BASE + '/api/v1/user/password/update
 export const API_PROFILE = URL_BASE + '/api/v1/profile';
 export const API_PROFILE_UPDATE = URL_BASE + '/api/v1/profile/update';
 export const API_USER_BLOGS = URL_BASE + '/api/v1/user/blogs';
-
+export const API_PROFILE_BLOG_ADD = URL_BASE + '/api/v1/profile/blog/add';
+export const API_PROFILE_BLOG_DELETE = URL_BASE + '/api/v1/profile/blog/delete/';

@@ -38,7 +38,7 @@
                     <pass-change></pass-change>
                 </b-tab>
                 <b-tab title="Articles" >
-                    <blogs-table :blogs="blogs"></blogs-table>
+                    <blogs-table :blogs="blogs" :ratings="ratings"></blogs-table>
                 </b-tab>
             </b-tabs>
         </div>
@@ -66,7 +66,8 @@
                     age: '',
                     about: ''
                 },
-                blogs: []
+                blogs: [],
+                ratings: []
             }
         },
         mounted() {
@@ -78,8 +79,13 @@
 
             axios.post(config.API_USER_BLOGS, {
                 token: this.token
-            }).then(data => this.blogs = data.data.response)
-                .catch(err => {});
+            }).then(
+                data => {
+                    let res = data.data.response;
+                    this.blogs = res.blogs;
+                    this.ratings = res.ratings;
+                }
+            ).catch(err => {});
         },
         methods: {
             onSubmit(e) {
