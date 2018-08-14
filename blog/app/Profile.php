@@ -12,8 +12,13 @@ class Profile extends Model
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'age', 'user_id'
+       'id', 'firstname', 'lastname', 'age', 'user_id'
     ];
     public $timestamps = false;
     protected $table = "user_profile";
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }

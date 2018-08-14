@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\Comment;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -79,5 +80,11 @@ class AdminController extends Controller
     {
         \DB::table('comments')->delete($id);
         return response()->json(['success' => 'OK']);
+    }
+
+    public function users()
+    {
+        $users = User::all();
+        return response()->json(['success' => 'ok', 'response' => $users]);
     }
 }

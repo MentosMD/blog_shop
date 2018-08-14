@@ -22,4 +22,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class, 'user_id', 'id');
     }
+
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class, 'user_id', 'id');
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class, 'user_id', 'id');
+    }
 }

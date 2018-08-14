@@ -17,6 +17,9 @@
                       <strong>Rating:</strong> {{_resultRatings(get_ratings)}}
                   </div>
               </div>
+              <div class="row">
+                  <strong>Author:</strong><h4>{{ author.firstname + author.lastname }}</h4>
+              </div>
               <v-comments :comments="this.comments"></v-comments>
               <template v-if="token !== null">
                   <div class="container">
@@ -51,7 +54,8 @@
                 rating: '',
                 comments: [],
                 ratings: 0,
-                get_ratings: []
+                get_ratings: [],
+                author: {}
             }
         },
         mounted(){
@@ -63,6 +67,10 @@
                     self.comments = res.blog.comments;
                     self.get_ratings = res.blog.ratings;
                     self.ratings =  self._resultRatings(self.ratings);
+                    self.author = {
+                       firstname: res.user.firstname,
+                       lastname: res.user.lastname
+                    };
                 })
                 .catch(err => {});
         },

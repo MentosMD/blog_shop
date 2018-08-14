@@ -40,6 +40,9 @@
                 <b-tab title="Articles" >
                     <blogs-table :blogs="blogs" :ratings="ratings"></blogs-table>
                 </b-tab>
+                <b-tab title="Delete Profile">
+                    <button type="button" class="btn btn-outline-danger margin-top-15" @click="deleteProfile()">Delete Profile</button>
+                </b-tab>
             </b-tabs>
         </div>
     </div>
@@ -88,6 +91,13 @@
             ).catch(err => {});
         },
         methods: {
+            notify(text, type){
+                this.$notify({
+                    group: 'example',
+                    text: text,
+                    type: type
+                });
+            },
             onSubmit(e) {
                 let self = this;
                 axios.post(config.API_PROFILE_UPDATE, {
@@ -97,6 +107,20 @@
                     token: this.token
                 }).then(data => { location.reload(); })
                   .catch(err => {});
+            },
+            deleteProfile() {
+                let conf = confirm("Are you really want to delete your profile?");
+                if (conf) {
+                    axios.post(config.API_PROFILE_DELETE, {
+                        token: this.token
+                    }).then(data => {
+                        localStorage.clear();
+                        this.notify('Successfully deleted profile!', 'success');
+                        setTimeout(() => {
+                            location.replace('/');
+                        }, 1500);
+                    }).catch(err => {});
+                }
             }
         }
     }

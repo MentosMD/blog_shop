@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Profile;
 use App\Rating;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -103,5 +105,15 @@ class ProfileController extends Controller
     {
         Blog::destroy($id);
         return response()->json(['success' => 'OK']);
+    }
+
+    public function deleteProfile(Request $request)
+    {
+        $token = $request->input('token');
+        $user = User::where('token', '=', $token)->first();
+        $user->profile()->delete();
+        $user->blogs()->delete();
+        $user->delete();
+        return response()->json(['success' => 'OK'], 200);
     }
 }
