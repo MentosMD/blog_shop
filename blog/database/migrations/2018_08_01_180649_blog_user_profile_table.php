@@ -19,6 +19,7 @@ class BlogUserProfileTable extends Migration
              $table->string('lastname');
              $table->integer('age');
              $table->string('about', 500);
+             $table->string('country')->nullable();
              $table->integer('user_id');
              $table->timestamps();
         });

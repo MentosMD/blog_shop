@@ -17,3 +17,4 @@ export const API_USER_BLOGS = URL_BASE + '/api/v1/user/blogs';
 export const API_PROFILE_BLOG_ADD = URL_BASE + '/api/v1/profile/blog/add';
 export const API_PROFILE_BLOG_DELETE = URL_BASE + '/api/v1/profile/blog/delete/';
 export const API_PROFILE_DELETE = URL_BASE + '/api/v1/profile/delete';
+export const API_PROFILE_DETAIL = URL_BASE + '/api/v1/profile/detail/';

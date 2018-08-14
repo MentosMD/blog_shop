@@ -18,7 +18,7 @@
                   </div>
               </div>
               <div class="row">
-                  <strong>Author:</strong><h4>{{ author.firstname + author.lastname }}</h4>
+                  <i class="fas fa-user"></i>&nbsp;<strong>By:</strong>&nbsp;<router-link :to="{ name: 'user_detail', params: { id: author.id }}">{{author.firstname}}&nbsp;{{author.lastname}}</router-link>
               </div>
               <v-comments :comments="this.comments"></v-comments>
               <template v-if="token !== null">
@@ -63,14 +63,12 @@
             axios.get(config.API_BLOG_GET + this.$route.params.id)
                 .then(data => {
                     let res = data.data.response;
+                    console.log(res.user);
+                    self.author = res.user;
                     self.blog = res.blog;
                     self.comments = res.blog.comments;
                     self.get_ratings = res.blog.ratings;
                     self.ratings =  self._resultRatings(self.ratings);
-                    self.author = {
-                       firstname: res.user.firstname,
-                       lastname: res.user.lastname
-                    };
                 })
                 .catch(err => {});
         },

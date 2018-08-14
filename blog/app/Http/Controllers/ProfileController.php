@@ -116,4 +116,15 @@ class ProfileController extends Controller
         $user->delete();
         return response()->json(['success' => 'OK'], 200);
     }
+
+    public function profileDetail(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        return response()->json(['success' => 'ok',
+                'response' =>
+                    array(
+                        'profile' => $user->profile,
+                        'blogs' => $user->blogs
+                    )], 200);
+    }
 }

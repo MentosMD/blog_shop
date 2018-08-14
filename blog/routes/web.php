@@ -29,6 +29,7 @@ Route::post('/api/v1/user/blogs', 'ProfileController@getBlogsUser');
 Route::post('/api/v1/profile/blog/add', 'ProfileController@addBlog');
 Route::get('/api/v1/profile/blog/delete/{id}', 'ProfileController@deleteBlog');
 Route::post('/api/v1/profile/delete', 'ProfileController@deleteProfile');
+Route::get('/api/v1/profile/detail/{id}', 'ProfileController@profileDetail');
 
 /* Admin's routers */
 Route::prefix('api/v1')->group(function () {
