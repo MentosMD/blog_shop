@@ -2,7 +2,7 @@
     <div class="row">
         <v-head></v-head>
         <div class="container padd-top-55">
-            <h4>{{ profile.firstname }}&nbsp;{{ profile.lastname }}</h4>
+            <h4 class="text-center">{{ profile.firstname }}&nbsp;{{ profile.lastname }}</h4>
         </div>
     </div>
 </template>

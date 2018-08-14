@@ -110,7 +110,7 @@ class ProfileController extends Controller
     public function deleteProfile(Request $request)
     {
         $token = $request->input('token');
-        $user = User::where('token', '=', $token)->first();
+        $user = User::where('token', '=', $token);
         $user->profile()->delete();
         $user->blogs()->delete();
         $user->delete();

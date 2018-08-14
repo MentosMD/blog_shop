@@ -26,4 +26,9 @@ class Blog extends Model
     {
         return $this->belongsTo(User::class, 'id', 'user_id');
     }
+
+    public function profile()
+    {
+        return $this->hasMany(Profile::class, 'user_id', 'user_id');
+    }
 }

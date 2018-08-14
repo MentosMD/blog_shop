@@ -27,12 +27,13 @@ class BlogController extends Controller
     public function getById(Request $request, $id)
     {
         $blog = Blog::findOrFail($id);
-        $user_id = $blog->pluck('user_id');
-        $user = User::where('id', '=', $user_id)->first();
-        $profile = $user->profile;
         $blog->comments;
         $blog->ratings;
-        return response()->json(['success' => 'OK', 'response' => ['blog' => $blog, 'user' => $profile]], 200);
+        return response()->json(['success' => 'OK',
+            'response' => array(
+                'blog' => $blog,
+                'profile' => $blog->profile
+            )], 200);
     }
 
     public function searchById(Request $request)

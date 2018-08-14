@@ -29,6 +29,9 @@
                                     :max-rows="6"
                             ></b-form-textarea>
                         </div>
+                        <div class="col-md-4 margin-top-15">
+                            <b-form-select v-model="user.country" :options="countries" />
+                        </div>
                         <div class="row margin-top-15 offset-md-1">
                             <button type="submit" class="btn btn-outline-success">Update</button>
                         </div>
@@ -62,12 +65,19 @@
         },
         data() {
             return {
+                countries: [
+                    {value: 'USA', text: 'USA'},
+                    {value: 'Russia', text: 'Russia'},
+                    {value: 'Germany', text: 'Germany'},
+                    {value: 'France', text: 'France'},
+                ],
                 token: localStorage.getItem('access_token'),
                 user: {
                     firstname: '',
                     lastname: '',
                     age: '',
-                    about: ''
+                    about: '',
+                    country: ''
                 },
                 blogs: [],
                 ratings: []

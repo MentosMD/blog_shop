@@ -28,6 +28,11 @@ class User extends Authenticatable
         return $this->hasMany(Blog::class, 'user_id', 'id');
     }
 
+    public function blog()
+    {
+        return $this->belongsTo(Blog::class, 'user_id', 'id');
+    }
+
     public function profile()
     {
         return $this->hasOne(Profile::class, 'user_id', 'id');

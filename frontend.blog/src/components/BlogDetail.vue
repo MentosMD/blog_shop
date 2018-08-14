@@ -64,7 +64,7 @@
                 .then(data => {
                     let res = data.data.response;
                     console.log(res.user);
-                    self.author = res.user;
+                    self.author = res.profile[0];
                     self.blog = res.blog;
                     self.comments = res.blog.comments;
                     self.get_ratings = res.blog.ratings;
@@ -81,6 +81,9 @@
                 });
             },
             _resultRatings(rates) {
+                if (rates.length === 0) {
+                    return 0;
+                }
                 let blogRating = 0;
                 let total = 0;
                 rates.map(i => {
