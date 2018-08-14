@@ -33,6 +33,8 @@ class ProfileController extends Controller
         $first_name = $request->input('first_name');
         $last_name = $request->input('last_name');
         $age = $request->input('age');
+        $about = $request->input('about');
+        $country = $request->input('country');
         $valid = Validator::make($request->all(), [
             'first_name' => 'max:100',
             'last_name' => 'max:100',
@@ -48,8 +50,14 @@ class ProfileController extends Controller
             $user_id = $u->id;
         }
         DB::table('user_profile')->where('user_id', '=', $user_id)
-                ->update(['firstname' => $first_name, 'lastname' => $last_name, 'age' => $age]);
-        return response()->json(['success' => 'OK'], 200);
+                ->update([
+                    'firstname' => $first_name,
+                    'lastname' => $last_name,
+                    'age' => $age,
+                    'about' => $about,
+                    'country' => $country
+                ]);
+        return response()->json(['success' => 'ok'], 200);
     }
 
     public function getBlogsUser(Request $request)

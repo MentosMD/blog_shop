@@ -114,9 +114,15 @@
                     first_name: self.user.firstname,
                     last_name: self.user.lastname,
                     age: self.user.age,
+                    about: self.user.about,
+                    country: self.user.country,
                     token: this.token
-                }).then(data => { location.reload(); })
-                  .catch(err => {});
+                }).then(data => {
+                    self.notify('Successfully updated profile!', 'success');
+                    setTimeout(() => {
+                        location.reload();
+                    },1500);
+                }).catch(err => {});
             },
             deleteProfile() {
                 let conf = confirm("Are you really want to delete your profile?");
