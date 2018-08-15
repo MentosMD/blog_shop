@@ -3,8 +3,7 @@
          <nav class="row menu">
              <ul>
                  <li><a href="/">Main</a></li>
-                 <li><a href="#/admin/comments">Comments</a></li>
-                 <li><a href="#/admin/blog/add">Add new blog</a></li>
+                 <li><a href="#/admin/users">Users</a></li>
              </ul>
          </nav>
     </div>

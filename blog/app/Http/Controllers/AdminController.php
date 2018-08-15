@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\Comment;
+use App\Profile;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -31,23 +32,6 @@ class AdminController extends Controller
         return response()->json(['succes' => 'OK'], 200);
     }
 
-    public function update(Request $request)
-    {
-        $valid = Validator::make($request->all(), [
-            'blog_title' => 'max:255',
-            'blog_body' => 'max:1000',
-            'blog_author' => 'max:100',
-        ]);
-        [$id, $blog_title, $blog_body, $blog_author, $created_date] = $request->all();
-        if($valid->fails()) {
-            return response()->json(['success' => 'OK', 'response' => $valid->errors()], 200);
-        }
-        \DB::table('blog')->where('id', $id)
-                ->update(['blog_title' => $blog_title, 'blog_body' => $blog_body,
-                        'blog_author' => $blog_author, 'created_date' => $created_date]);
-        return response()->json(['success' => 'OK'], 200);
-    }
-
     public function addBlog(Request $request)
     {
         $valid = Validator::make($request->all(), [
@@ -70,21 +54,31 @@ class AdminController extends Controller
         return response()->json(['success' => 'OK'], 200);
     }
 
-    public function getAllComments()
-    {
-        $comments = Comment::all();
-        return response()->json(['success' => 'OK', 'response' => $comments], 200);
-    }
-
-    public function deleteComment(Request $request, $id)
-    {
-        \DB::table('comments')->delete($id);
-        return response()->json(['success' => 'OK']);
-    }
-
     public function users()
     {
-        $users = User::all();
+        $users = Profile::all();
         return response()->json(['success' => 'ok', 'response' => $users]);
+    }
+
+    public function deleteUser(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $profile = Profile::findOrFail($id);
+        $blogs = Blog::where('user_id', '=', $id);
+        try {
+            $user->delete();
+            $profile->delete();
+            $blogs->delete();
+            return response()->json(['success' => 'ok'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['err' => $e->getMessage()], 400);
+        }
+    }
+
+    public function detailUser(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $user->profile;
+        return response()->json(['success' => 'ok', 'response' => $user]);
     }
 }

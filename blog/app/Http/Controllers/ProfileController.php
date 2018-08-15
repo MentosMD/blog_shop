@@ -119,10 +119,16 @@ class ProfileController extends Controller
     {
         $token = $request->input('token');
         $user = User::where('token', '=', $token);
-        $user->profile()->delete();
-        $user->blogs()->delete();
-        $user->delete();
-        return response()->json(['success' => 'OK'], 200);
+        $profile = Profile::findOrFail($user->id);
+        $blogs = Blog::where('user_id', '=', $user->id);
+        try {
+           $user->delete();
+           $profile->delete();
+           $blogs->delete();
+            return response()->json(['success' => 'OK'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['err' => $e->getMessage()], 400);
+        }
     }
 
     public function profileDetail(Request $request, $id)

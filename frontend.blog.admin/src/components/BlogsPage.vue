@@ -14,9 +14,6 @@
                          <i class="fas fa-trash-alt"></i>
                      </button>
                  </template>
-                 <template slot="Update" slot-scope="data">
-                     <router-link v-bind:to="`admin/blog/update/${data.item.id}`" class="btn btn-outline-primary"><i class="fas fa-pencil-alt"></i></router-link>
-                 </template>
              </b-table>
          </div>
      </div>
@@ -48,10 +45,6 @@
                     },
                     {
                         key: 'Delete',
-                        label: ''
-                    },
-                    {
-                        key: 'Update',
                         label: ''
                     }
                 ]

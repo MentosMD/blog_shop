@@ -37,8 +37,7 @@ Route::prefix('api/v1')->group(function () {
     Route::get('admin/blog/get/{id}', 'AdminController@getById');
     Route::post('admin/blog/add', 'AdminController@addBlog');
     Route::get('admin/blog/delete/{id}', 'AdminController@delete');
-    Route::post('admin/blog/update', 'AdminController@update');
-    Route::get('admin/comment/all', 'AdminController@getAllComments');
-    Route::get('admin/comment/delete/{id}', 'AdminController@deleteComment');
     Route::get('admin/user/all', 'AdminController@users');
+    Route::get('admin/user/delete/{id}', 'AdminController@deleteUser');
+    Route::get('admin/user/detail/{id}', 'AdminController@detailUser');
 });
