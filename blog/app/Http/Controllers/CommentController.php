@@ -18,7 +18,7 @@ class CommentController extends Controller
 
     public function create(Request $request)
     {
-        $comment = $request->input('comment_body');
+        $comment = $request->input('comment');
         $created_date = date("Y-m-d");
         $blog_id = $request->input('blog_id');
         $token = $request->input('token');

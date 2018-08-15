@@ -1,8 +1,8 @@
 <template>
     <div class="row blog-comments">
         <div class="comment" v-for="comment in comments">
-            <h4>{{ comment.name }}</h4>
-            <p>{{ comment.comment_body }}</p>
+            <h4>{{ comment.firstname }}&nbsp;{{ comment.lastname }}</h4>
+            <p>{{ comment.comment }}</p>
             <span>{{ comment.created_date }}</span>
         </div>
     </div>

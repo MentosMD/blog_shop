@@ -37,15 +37,26 @@
         mounted() {
         },
         methods: {
+            notify(text, type){
+                this.$notify({
+                    group: 'example',
+                    text: text,
+                    type: type
+                });
+            },
             onSubmit(e) {
                 e.preventDefault();
                 let { body } = this.comment;
                 axios.post(config.API_COMMENT_ADD, {
-                     body: body,
+                     comment: body,
                      blog_id: this.id,
                      token: localStorage.getItem('access_token')
-                }).then(data => { location.reload(); })
-                    .catch(err => {});
+                }).then(data => {
+                    this.notify('Successfully added your comment!', 'success');
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1500);
+                }).catch(err => {});
             }
         }
     }

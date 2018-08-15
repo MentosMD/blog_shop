@@ -66,7 +66,7 @@
                     console.log(res.user);
                     self.author = res.profile[0];
                     self.blog = res.blog;
-                    self.comments = res.blog.comments;
+                    self.comments = res.comments;
                     self.get_ratings = res.blog.ratings;
                     self.ratings =  self._resultRatings(self.ratings);
                 })

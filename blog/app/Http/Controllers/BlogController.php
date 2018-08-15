@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\Comment;
+use App\Profile;
 use App\Rating;
 use App\User;
 use Illuminate\Database\Eloquent\Collection;
@@ -27,11 +28,23 @@ class BlogController extends Controller
     public function getById(Request $request, $id)
     {
         $blog = Blog::findOrFail($id);
-        $blog->comments;
+        $comments = Comment::where('blog_id', '=', $id)->get();
+        $arr = array();
+        foreach ($comments as $comment) {
+            $profile = Profile::findOrFail($comment->user_id);
+            array_push($arr, array(
+                'firstname' => $profile->firstname,
+                'lastname' => $profile->lastname,
+                'comment' => $comment->comment,
+                'created_date' => $comment->created_date
+            ));
+        }
+
         $blog->ratings;
         return response()->json(['success' => 'OK',
             'response' => array(
                 'blog' => $blog,
+                'comments' => $arr,
                 'profile' => $blog->profile
             )], 200);
     }

@@ -17,9 +17,4 @@ class Comment extends Model
     {
         return $this->belongsTo(Blog::class, 'id', 'blog_id');
     }
-
-    public function user()
-    {
-        return $this->hasMany(User::class, 'id', 'user_id');
-    }
 }
