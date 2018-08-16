@@ -23,14 +23,6 @@ export default class DetailBook extends React.Component
             }).catch((err) => {
                 console.log(err);
             });
-        setTimeout(() => {
-            axios.get(`${config.API_GENRE_SINGLE}${this.state.book.genre_id}`)
-                .then((data) => {
-                    this.setState({ genre: data.data.response.GenreName });
-                }).catch((err) => {
-                console.log(err);
-            });
-        }, 100);
     }
 
     render()

@@ -91,9 +91,8 @@ export default class BooksList extends React.Component
 
     _onChangePrice(e)
     {
-        let state = this.state;
-        state[e.target.name] = e.target.value;
-        this.setState(state);
+        let {name, value} = e.target;
+        this.setState({ [name]: value });
     }
 
     _onFilterPrice(e)

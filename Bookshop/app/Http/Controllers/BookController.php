@@ -35,31 +35,6 @@ class BookController extends Controller
         return response()->json(['success' => 'OK', 'response' => $book], 200);
     }
 
-    public function getAllGenres()
-    {
-        $genres = Genre::all();
-        return response()->json(['success' => 'OK', 'response' => $genres], 200);
-    }
-
-    public function getGenreById(Request $request, $id)
-    {
-        $genre = DB::table('genres')->where('GenreId', $id)->first();
-        if($genre == null)
-        {
-            return response()->json(['success' => 'OK'], 404);
-        }
-        return response()->json(['success' => 'OK', 'response' => $genre], 200);
-    }
-
-    public function getByGenre(Request $request)
-    {
-        $genre = $request->input('genre_id');
-        $bookBygenre = DB::table('books')
-                           ->where('genre_id',$genre)
-                           ->get();
-        return response()->json(['success' => 'OK', 'response' => $bookBygenre], 200);
-    }
-
     public function getByPrice(Request $request)
     {
         $priceFrom = $request->input('priceFrom');

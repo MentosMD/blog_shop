@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Customer;
 use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -35,19 +36,21 @@ class OrderController extends Controller
             $msg = $validator->errors();
             return response()->json($msg, 404);
         }
-        $resp = [
-            'name' => $name,
-            'email' => $email,
-            'phone' => $phone,
-            'address' => $address,
-            'city' => $city,
+        $order = new Order();
+        $customer = new Customer;
+        $customer->name = $name;
+        $customer->email = $email;
+        $customer->phone = $phone;
+        $customer->address = $address;
+        $customer->city = $city;
+        $customer->save();
+        $order->insert([
             'OrderTotal' => $total,
             'OrderQuantity' => $quantity,
             'OrderDate' => date("Y-m-d H:i"),
+            'customer_id' => $customer->id,
             'cart' => $cart
-        ];
-        $order = new Order();
-        $order->insert($resp);
+        ]);
         return response()->json(['success' => 'OK'], 200);
     }
 }

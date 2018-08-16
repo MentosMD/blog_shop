@@ -14,10 +14,7 @@
 Route::get('/api/books', 'BookController@getALl')->name('books');
 Route::get('/api/book/detail/{id}', 'BookController@getDetailBook')->name('detail-book');
 Route::post('/api/book/search', 'BookController@searchBook')->name('search-book');
-Route::post('/api/book/genre/search', 'BookController@getByGenre')->name('filter-genre');
 
-Route::get('/api/genre/{id}', 'BookController@getGenreById')->name('genre_single');
-Route::get('/api/genres', 'BookController@getAllGenres')->name('genres');
 Route::post('/api/order/add', 'OrderController@addOrder')->name('add-order');
 Route::post('/api/book/search/by/price', 'BookController@getByPrice')->name('search-book-price');
 
@@ -31,5 +28,4 @@ Route::prefix('api/admin')->group(function (){
     Route::get('orders', 'AdminController@getAllOrders');
     Route::get('order/{id}', 'AdminController@getDetailOrder');
     Route::get('order/delete/{id}', 'AdminController@deleteOrder');
-    Route::post('image/upload', 'AdminController@addImageBook');
 });

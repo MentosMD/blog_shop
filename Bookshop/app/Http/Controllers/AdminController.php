@@ -115,12 +115,4 @@ class AdminController extends Controller
         Order::where('id', $id)->delete();
         return response()->json(['Success' => 'OK'], 200);
     }
-
-    public function addImageBook(Request $request)
-    {
-        if($request->hasFile('image')){
-            return response()->json('True');
-        }
-        return response()->json('False');
-    }
 }

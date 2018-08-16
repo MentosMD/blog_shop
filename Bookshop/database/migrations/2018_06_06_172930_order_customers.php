@@ -13,15 +13,11 @@ class OrderCustomers extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table){
-            $table->increments('OrderId');
+            $table->increments('id');
             $table->integer('OrderQuantity');
             $table->date('OrderDate');
             $table->float('OrderTotal');
-            $table->string('name', 255);
-            $table->string('email', 255);
-            $table->string('address', 255);
-            $table->string('city', 255);
-            $table->integer('phone');
+            $table->integer('customer_id');
             $table->text('cart');
         });
     }

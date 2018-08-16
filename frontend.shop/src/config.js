@@ -6,4 +6,3 @@ export const API_BOOK_SEARCH = URL_BASE + '/api/book/search';
 export const API_BOOK_BY_PRICE = URL_BASE + '/api/book/search/by/price';
 
 export const API_ORDER_ADD = URL_BASE + '/api/order/add';
-export const API_GENRE_SINGLE = URL_BASE + '/api/genre/';

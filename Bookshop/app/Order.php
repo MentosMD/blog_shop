@@ -8,10 +8,7 @@ class Order extends Model
 {
     protected $fillable = [
         'OrderTotal', 'OrderDate',
-        'OrderQuantity', 'name',
-        'email', 'phone',
-        'address', 'city',
-        'cart'
+        'OrderQuantity', 'cart'
     ];
     protected $order = 'orders';
 }
