@@ -70,7 +70,9 @@ export default class BooksList extends React.Component
         this.state = {
             data: [],
             pageOfItems: [],
-            title: ''
+            title: '',
+            min: 0,
+            max: 0
         };
         this.onChangePage = this.onChangePage.bind(this);
         this._onChange = this._onChange.bind(this);
@@ -91,18 +93,20 @@ export default class BooksList extends React.Component
 
     _onChangePrice(e)
     {
-        let {name, value} = e.target;
-        this.setState({ [name]: value });
+        this.setState({
+            min: e[0],
+            max: e[1]
+        });
     }
 
     _onFilterPrice(e)
     {
         e.preventDefault();
+        let { min, max } = this.state;
         axios.post(config.API_BOOK_BY_PRICE, {
-            priceFrom: this.state.priceFrom,
-            priceTo: this.state.priceTo
-        })
-            .then((data) => {
+            min: min,
+            max: max
+        }).then((data) => {
                 this.setState({ data: data.data.response });
             }).catch((err) => {
             console.log(err);

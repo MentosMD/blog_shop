@@ -1,7 +1,11 @@
 import React from 'react'
-import TextField from '../TextField.jsx'
-import axios from 'axios'
+import Slider from 'rc-slider';
+import axios from 'axios';
+import createSliderWithTooltip from "rc-slider/es/createSliderWithTooltip";
 import * as config from '../../config'
+const Range = createSliderWithTooltip(Slider.Range);
+
+import 'rc-slider/assets/index.css';
 
 export default class FilterPrice extends React.Component
 {
@@ -9,20 +13,30 @@ export default class FilterPrice extends React.Component
     {
         super(props);
         this.state = {
-            priceFrom: 0,
-            priceTo: 0
+            price: [0,0],
+            min: 0,
+            max: 0
         };
         this._onChange = this._onChange.bind(this);
         this._onSubmit = this._onSubmit.bind(this);
     }
 
+    componentDidMount()
+    {
+        axios.get(config.API_BOOK_PRICE_MIN_MAX)
+            .then(data => {
+                let res = data.data.response;
+                this.setState({
+                   min: res.min,
+                   max: res.max
+                });
+            }).catch(err => {});
+    }
+
     _onChange(e)
     {
-        let { name, value } = e.target;
-        let state = this.state;
-        state[name] = value;
         this.props.onChange(e);
-        this.setState(state);
+        this.setState({ price: e });
     }
 
     _onSubmit(e)
@@ -31,28 +45,16 @@ export default class FilterPrice extends React.Component
     }
 
     render(){
+        let { min, max } = this.state;
         return(
             <div className="row">
                  <div className="container">
                      <form method="post" action="#" onSubmit={this._onSubmit} className="row">
-                         <div className="col-md-1">
-                             <span>From</span>
-                             <TextField type="text"
-                                        value={this.state.priceFrom}
-                                        name="priceFrom"
-                                        onChange={this._onChange}
-                             />
+                         <div className="col-md-2">
+                             <Range min={min} max={max} defaultValue={[3, 10]} tipFormatter={value => `${value}$`} onChange={this._onChange} />
                          </div>
-                         <div className="col-md-1">
-                             <span>To</span>
-                             <TextField type="text"
-                                        value={this.state.priceTo}
-                                        name="priceTo"
-                                        onChange={this._onChange}
-                             />
-                         </div>
-                         <div className="col-md-1">
-                             <button type="submit" className="btn btn-success">Apply</button>
+                         <div className="col-md-2">
+                             <button type="submit" className="btn btn-outline-primary">Filter</button>
                          </div>
                      </form>
                  </div>

@@ -37,11 +37,25 @@ class BookController extends Controller
 
     public function getByPrice(Request $request)
     {
-        $priceFrom = $request->input('priceFrom');
-        $priceTo = $request->input('priceTo');
+        $min = $request->input('min');
+        $max = $request->input('max');
         $res = DB::table('books')
-                   ->select()->where('price', '>=', $priceFrom)
-                   ->where('price', '<=', $priceTo)->get();
+                   ->select()->where('price', '>=', $min)
+                   ->where('price', '<=', $max)->get();
         return response()->json(['success' => 'OK', 'response' => $res], 200);
+    }
+
+    public function getMinPriceMax()
+    {
+        $books = Book::all();
+        $min = Book::where('price', $books->min('price'))->first();
+        $max = Book::where('price', $books->max('price'))->first();
+        return response()->json(['success' => 'ok',
+            'response' => array(
+                'min' => $min->price,
+                'max' => $max->price
+            )
+        ], 200);
+
     }
 }
