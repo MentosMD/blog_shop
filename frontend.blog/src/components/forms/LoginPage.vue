@@ -63,7 +63,14 @@
                         location.replace('/');
                     }, 1500);
                 }).catch(err => {
-                    this.notify('Invalid login or password', 'error');
+                    let status = err.response.status;
+                    let data = err.response.data;
+                    if (status === 400) {
+                        this.notify(data.message, 'error');
+                    }
+                    else if (status === 402) {
+                        this.notify(data.message, 'error');
+                    }
                 });
             }
         }

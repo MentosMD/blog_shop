@@ -14,7 +14,12 @@
             </div>
             <div class="col-md-4 float-right">
                 <button class="btn btn-outline-danger" @click="deleteUser()">Delete user</button>
-                <button class="btn btn-outline-danger">Block</button>
+                <button class="btn btn-outline-danger" @click="blockUser()" v-if="user.block === 0">
+                    Block
+                </button>
+                <button class="btn btn-outline-danger" @click="unblockUser()" v-if="user.block === 1">
+                    UnBlock
+                </button>
             </div>
         </div>
     </div>
@@ -39,11 +44,36 @@
                 .catch(err => {});
         },
         methods: {
+            notify(text, type){
+                this.$notify({
+                    group: 'example',
+                    text: text,
+                    type: type
+                });
+            },
             deleteUser() {
                 axios.get(config.API_ADMIN_USER_DELETE + this.user.id)
                     .then(data => {
                         setTimeout(() => {
                             location.replace('/');
+                        }, 1500);
+                    }).catch(err => {});
+            },
+            blockUser() {
+                axios.get(config.API_ADMIN_USER_BLOCK + this.user.id)
+                    .then(data => {
+                        this.notify(data.data.message, 'success');
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1500);
+                    }).catch(err => {});
+            },
+            unblockUser() {
+                axios.get(config.API_ADMIN_USER_UNBLOCK + this.user.id)
+                    .then(data => {
+                        this.notify(data.data.message, 'success');
+                        setTimeout(() => {
+                            location.reload();
                         }, 1500);
                     }).catch(err => {});
             }

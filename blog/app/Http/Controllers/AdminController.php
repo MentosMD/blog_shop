@@ -81,4 +81,26 @@ class AdminController extends Controller
         $user->profile;
         return response()->json(['success' => 'ok', 'response' => $user]);
     }
+
+    public function blockUser(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        if ($user->block == 0) {
+            $user->block = 1;
+            $user->save();
+            return response()->json(['success' => 'ok', 'message' => 'You have blocked this user!'], 200);
+        }
+        return response()->json(['err' => 'true', 'message' => 'User is blocked'], 200);
+    }
+
+    public function unblockUser(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        if ($user->block == 1) {
+            $user->block = 0;
+            $user->save();
+            return response()->json(['success' => 'ok', 'message' => 'You have unblocked this user!'], 200);
+        }
+        return response()->json(['err' => 'true', 'message' => 'User is unblocked'], 200);
+    }
 }

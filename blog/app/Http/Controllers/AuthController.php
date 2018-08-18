@@ -40,6 +40,7 @@ class AuthController extends Controller
         $user->login = $login;
         $user->email = $email;
         $user->password = $password;
+        $user->block = false;
         $user->token = $token;
         $user->save();
         $profile->insert([
@@ -61,11 +62,14 @@ class AuthController extends Controller
                         ['password', '=', $password],
                     ])->get();
         if(!$user->count()) {
-            return response()->json(['error' => 'OK', 'response' => 'Invalid login or password'], 400);
+            return response()->json(['error', 'message' => 'Invalid login or password'], 400);
         }
         $token = "";
         foreach ($user as $u) {
             $token = $u->token;
+        }
+        if ($user->pluck('block')[0] == 1) {
+            return response()->json(['err' => 'true', 'message' => 'You are blocked'], 402);
         }
         return response()->json(['success' => 'OK', 'response' => $token], 200);
     }

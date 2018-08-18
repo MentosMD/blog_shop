@@ -40,4 +40,6 @@ Route::prefix('api/v1')->group(function () {
     Route::get('admin/user/all', 'AdminController@users');
     Route::get('admin/user/delete/{id}', 'AdminController@deleteUser');
     Route::get('admin/user/detail/{id}', 'AdminController@detailUser');
+    Route::get('admin/user/block/{id}', 'AdminController@blockUser');
+    Route::get('admin/user/unblock/{id}', 'AdminController@unblockUser');
 });

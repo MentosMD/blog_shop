@@ -19,6 +19,7 @@ class BlogUserTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('token');
+            $table->boolean('block');
             $table->timestamps();
         });
     }
