@@ -39,7 +39,6 @@ class BlogController extends Controller
                 'created_date' => $comment->created_date
             ));
         }
-
         $blog->ratings;
         return response()->json(['success' => 'OK',
             'response' => array(

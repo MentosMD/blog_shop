@@ -1,10 +1,9 @@
 <template>
      <div class="row">
-         <router-link v-bind:to="`blog/detail/${id}`" class="blog-item-title link">
+         <router-link v-bind:to="`blog/detail/${id}`" class="blog-item-title link col-md-10">
              {{ title }}
          </router-link>
-         <p class="blog-item-body">{{ body }}</p>
-         <div class="col-md-8 float-right">
+         <div>
              <small class="blog-item-small">{{ author }}</small>
              <small class="blog-item-small">{{ date }}</small>
          </div>
@@ -34,7 +33,11 @@
         font-size 20px
         font-style oblique
         font-family 'Merienda', cursive
-        color #2c6823
+        color #262728
+        transition .2s ease
+    .blog-item-title:hover
+        color #ef5d43
+        text-decoration none
     .blog-item-body
         font-family Poppins
     .blog-item-small
@@ -46,6 +49,5 @@
     .padd-top-50
         padding-top 50px
     .link
-        text-align center
         width 100%
 </style>

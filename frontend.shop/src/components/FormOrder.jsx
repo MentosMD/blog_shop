@@ -155,7 +155,6 @@ export default class FormOrder extends React.Component
                              />
                          </div>
                          <div className="row display-flex">
-                             <button type="button" className="btn btn-outline-primary" onClick={this._onReset}>Reset</button>
                              <button type="submit" className="btn btn-outline-success">Send</button>
                          </div>
                      </form>

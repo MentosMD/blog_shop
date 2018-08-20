@@ -86,7 +86,7 @@ class ProfileController extends Controller
         $user_id = null;
         $valid = Validator::make($request->all(), [
             'blog_title' => 'required|max:255',
-            'blog_body' => 'required|max:1000'
+            'blog_body' => 'required'
         ]);
         if($valid->fails()) {
             return response()->json(['_error', 'response' => $valid->errors()], 400);

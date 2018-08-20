@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 import NotificationSystem from 'react-notification-system'
-import Select from 'react-select'
 import 'react-select/dist/react-select.css';
 import Pagination from './Pagination.jsx'
 import FormFilter from './forms/FormFilter.jsx'

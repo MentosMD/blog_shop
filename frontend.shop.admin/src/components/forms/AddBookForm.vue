@@ -123,9 +123,6 @@
                 reader.readAsDataURL(file);
             },
             testImage(){
-                // axios.post('/api/admin/image/upload', {
-                //     image: this.img
-                // }).then((data) => {}).catch((err) => {});
             }
         }
     }

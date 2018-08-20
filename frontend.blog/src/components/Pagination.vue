@@ -5,7 +5,6 @@
                  <v-blog
                     :id="p.id"
                     :title="p.blog_title"
-                    :body="p.blog_body"
                     :author="p.blog_author"
                     :date="p.created_date"></v-blog>
             </li>

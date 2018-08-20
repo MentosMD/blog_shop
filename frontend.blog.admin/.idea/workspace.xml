@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc097971-7e5c-4a77-a78b-f2eda4bb01f4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../blog/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blog/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blog/database/migrations/2018_07_31_164111_blog_user_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/database/migrations/2018_07_31_164111_blog_user_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blog/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend.blog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.blog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend.blog/src/components/forms/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.blog/src/components/forms/LoginPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend.shop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.shop/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="cc097971-7e5c-4a77-a78b-f2eda4bb01f4" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/dist/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +13,7 @@
     <session id="1351312794">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.opened" value="2" />
@@ -358,12 +350,12 @@
       <workItem from="1532972503888" duration="1813000" />
       <workItem from="1532974783226" duration="984000" />
       <workItem from="1534341708688" duration="5684000" />
-      <workItem from="1534575676377" duration="1573000" />
+      <workItem from="1534575676377" duration="1782000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156758000" />
+    <option name="totallyTimeSpent" value="156967000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />

@@ -10,8 +10,9 @@ export default class DetailBook extends React.Component
         super(props);
         this.state = {
             book: {},
-            id: this.props.match.params.id,
+            id: this.props.match.params.id
         };
+        this._addToCart = this._addToCart.bind(this);
     }
 
     componentDidMount()
@@ -22,14 +23,21 @@ export default class DetailBook extends React.Component
                     book: data.data.response
                 });
             }).catch((err) => {
-                console.log(err);
-            });
+            console.log(err);
+        });
+    }
+
+    _addToCart()
+    {
+        let {book} = this.state;
+        window.sessionStorage.setItem(book.id, JSON.stringify(book));
+        alert('Successfully added in cart');
     }
 
     render()
     {
-        let state = this.state;
-        if(state.book.image === undefined)
+        let {book} = this.state;
+        if (book.image === undefined)
         {
             return null;
         }
@@ -39,14 +47,16 @@ export default class DetailBook extends React.Component
                 <div className="container">
                     <div className="col-md-12">
                         <div>
-                            <img src={require(`../assets/img/${state.book.image}`)} width={100} height={100} />
+                            <img src={require(`../assets/img/${book.image}`)} width={100} height={100} />
                         </div>
-                        Title: <h4>{state.book.title}</h4>
-                        Author: <h4>{state.book.author}</h4>
-                        Genre: <h4>{state.genre}</h4>
-                        Pages: <h4>{state.book.pages}</h4>
-                        Price: <strong>{state.book.price}$</strong><br/>
-                        Description: <p>{state.book.description}</p>
+                        Title: <h4>{book.title}</h4>
+                        Author: <h4>{book.author}</h4>
+                        Pages: <h4>{book.pages}</h4>
+                        Price: <strong>{book.price}$</strong><br/>
+                        Description: <p>{book.description}</p>
+                    </div>
+                    <div className="col-md-12">
+                        <button className="btn btn-outline-success" onClick={this._addToCart}>Add to cart</button>
                     </div>
                 </div>
             </div>
