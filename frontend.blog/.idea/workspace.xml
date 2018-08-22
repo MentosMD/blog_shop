@@ -2,25 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc097971-7e5c-4a77-a78b-f2eda4bb01f4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../blog/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/app/Http/Controllers/BlogController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../blog/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blog/database/migrations/2018_07_20_174718_create_blog_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/database/migrations/2018_07_20_174718_create_blog_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend.blog.admin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.blog.admin/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/app.styl" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/app.styl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BlogItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BlogItem.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Comments.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Comments.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pagination.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pagination.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend.shop.admin/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.shop.admin/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend.shop.admin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.shop.admin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend.shop.admin/src/components/forms/AddBookForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.shop.admin/src/components/forms/AddBookForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend.shop.admin/src/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.shop.admin/src/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend.shop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.shop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend.shop/src/assets/app.styl" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.shop/src/assets/app.styl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend.shop/src/components/BooksList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.shop/src/components/BooksList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend.shop/src/components/DetailBook.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.shop/src/components/DetailBook.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend.shop/src/components/FormOrder.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.shop/src/components/FormOrder.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend.shop/src/components/Head.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.shop/src/components/Head.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,10 +18,11 @@
     <session id="204426841">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
+          <entry key="project.closed" value="16" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.134" value="1" />
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.56" value="1" />
           <entry key="project.open.time.57" value="1" />
@@ -50,36 +36,36 @@
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.80" value="1" />
           <entry key="project.open.time.98" value="1" />
-          <entry key="project.opened" value="19" />
+          <entry key="project.opened" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="472" />
+          <entry key="js" value="473" />
           <entry key="styl" value="106" />
-          <entry key="vue" value="5840" />
+          <entry key="vue" value="6128" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="478" />
+          <entry key="JavaScript" value="479" />
           <entry key="Stylus" value="106" />
-          <entry key="Vue.js" value="5834" />
+          <entry key="Vue.js" value="6122" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="3" />
+          <entry key="js" value="4" />
           <entry key="styl" value="5" />
-          <entry key="vue" value="36" />
+          <entry key="vue" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JavaScript" value="3" />
+          <entry key="JavaScript" value="4" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Stylus" value="4" />
-          <entry key="Vue.js" value="36" />
+          <entry key="Vue.js" value="41" />
         </counts>
       </usages-collector>
     </session>
@@ -87,37 +73,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/Pagination.vue">
+        <entry file="file://$PROJECT_DIR$/src/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="21" column="10" lean-forward="true" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+            <state relative-caret-position="295">
+              <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/BlogItem.vue">
+        <entry file="file://$PROJECT_DIR$/src/components/ProfilePage.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Comments.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/assets/app.styl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="248">
+              <caret line="72" column="18" lean-forward="true" selection-start-line="72" selection-start-column="18" selection-end-line="72" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -153,7 +121,6 @@
         <option value="$PROJECT_DIR$/src/components/forms/AddBookForm.jsx" />
         <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/src/components/Orders.vue" />
-        <option value="$PROJECT_DIR$/src/components/TextField.vue" />
         <option value="$PROJECT_DIR$/src/components/OrdersPage.vue" />
         <option value="$PROJECT_DIR$/src/App.vue" />
         <option value="$PROJECT_DIR$/src/components/BooksList.vue" />
@@ -174,12 +141,10 @@
         <option value="$PROJECT_DIR$/src/components/PrayerPage.vue" />
         <option value="$PROJECT_DIR$/src/components/forms/RegisterPage.vue" />
         <option value="$PROJECT_DIR$/src/components/Head.vue" />
-        <option value="$PROJECT_DIR$/src/components/forms/ChangePassword.vue" />
         <option value="$PROJECT_DIR$/src/components/forms/AddBlogUser.vue" />
         <option value="$PROJECT_DIR$/src/components/BlogList.vue" />
         <option value="$PROJECT_DIR$/src/components/ArticlesProfile.vue" />
         <option value="$PROJECT_DIR$/src/router/index.js" />
-        <option value="$PROJECT_DIR$/src/config.js" />
         <option value="$PROJECT_DIR$/src/components/ProfilePage.vue" />
         <option value="$PROJECT_DIR$/src/components/UserDetail.vue" />
         <option value="$PROJECT_DIR$/src/components/BlogDetail.vue" />
@@ -189,6 +154,9 @@
         <option value="$PROJECT_DIR$/src/assets/app.styl" />
         <option value="$PROJECT_DIR$/src/components/BlogItem.vue" />
         <option value="$PROJECT_DIR$/src/components/Comments.vue" />
+        <option value="$PROJECT_DIR$/src/components/TextField.vue" />
+        <option value="$PROJECT_DIR$/src/components/forms/ChangePassword.vue" />
+        <option value="$PROJECT_DIR$/src/config.js" />
       </list>
     </option>
   </component>
@@ -266,7 +234,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../frontend.shop" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -439,18 +407,19 @@
       <workItem from="1534341619877" duration="79000" />
       <workItem from="1534574798510" duration="3321000" />
       <workItem from="1534680135346" duration="2917000" />
-      <workItem from="1534693645124" duration="1487000" />
+      <workItem from="1534693645124" duration="1743000" />
+      <workItem from="1534870585295" duration="3670000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214812000" />
+    <option name="totallyTimeSpent" value="218738000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.34956107" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35594574" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -524,7 +493,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/vue/types/options.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/vue2-bootstrap-table2/dist/vue-bootstrap-table.min.js" />
-    <entry file="file://$PROJECT_DIR$/src/components/TextField.vue" />
     <entry file="file://$PROJECT_DIR$/src/components/OrdersPage.vue" />
     <entry file="file://$PROJECT_DIR$/src/assets/images/first_player.jpg">
       <provider selected="true" editor-type-id="images" />
@@ -631,13 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/forms/ChangePassword.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="47" column="58" lean-forward="true" selection-start-line="47" selection-start-column="58" selection-end-line="47" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/forms/AddBlogUser.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -659,13 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ProfilePage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="115" column="39" lean-forward="true" selection-start-line="115" selection-start-column="39" selection-end-line="115" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/UserDetail.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -677,13 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
           <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
@@ -715,31 +662,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Pagination.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Comments.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/app.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="961">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/TextField.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/BlogItem.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+        <state relative-caret-position="310">
+          <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Pagination.vue">
+    <entry file="file://$PROJECT_DIR$/src/components/forms/ChangePassword.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="21" column="10" lean-forward="true" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+        <state relative-caret-position="496">
+          <caret line="46" column="39" lean-forward="true" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
+          <folding>
+            <element signature="e#847#873#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ProfilePage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="72" column="18" lean-forward="true" selection-start-line="72" selection-start-column="18" selection-end-line="72" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
         </state>
       </provider>
     </entry>

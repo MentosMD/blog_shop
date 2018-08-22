@@ -46,9 +46,6 @@ export default class DetailBook extends React.Component
                 <Head/>
                 <div className="container">
                     <div className="col-md-12">
-                        <div>
-                            <img src={require(`../assets/img/${book.image}`)} width={100} height={100} />
-                        </div>
                         Title: <h4>{book.title}</h4>
                         Author: <h4>{book.author}</h4>
                         Pages: <h4>{book.pages}</h4>

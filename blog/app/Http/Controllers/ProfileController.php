@@ -119,8 +119,8 @@ class ProfileController extends Controller
     {
         $token = $request->input('token');
         $user = User::where('token', '=', $token);
-        $profile = Profile::findOrFail($user->id);
-        $blogs = Blog::where('user_id', '=', $user->id);
+        $profile = Profile::findOrFail($user->pluck('id')[0]);
+        $blogs = Blog::where('user_id', '=', $user->pluck('id')[0]);
         try {
            $user->delete();
            $profile->delete();
