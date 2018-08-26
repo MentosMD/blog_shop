@@ -24,8 +24,7 @@ class CommentController extends Controller
         $token = $request->input('token');
 
         $validator = \Validator::make($request->all(), [
-             'comment' => 'required|max|1000',
-             'blog_id' => 'required'
+             'comment' => 'required',
         ]);
         if($validator->fails())
         {
