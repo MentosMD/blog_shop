@@ -3,8 +3,8 @@
           <v-head></v-head>
           <div class="container">
               <div class="row">
-                   <h4>{{ blog.blog_title }}</h4>
-                   <p>{{ blog.blog_body }}</p>
+                   <h5 class="col-md-12 text-center">{{ blog.blog_title }}</h5>
+                   <p class="col-md-12 word-break">{{ blog.blog_body }}</p>
               </div>
               <div class="row position">
                   <template v-if="token !== null">
@@ -27,7 +27,7 @@
                   </div>
               </template>
               <template v-else>
-                  <h5 class="text-center margin-top-20">No access to commenting,only authorized user</h5>
+                  <h5 class="text-center margin-top-20">No access to commenting,only authorized user. <router-link :to="{ name: 'login'}">Login</router-link></h5>
               </template>
           </div>
       </div>
@@ -114,4 +114,6 @@
    .position
        display flex
        justify-content space-between
+   .word-break
+       word-break break-all
 </style>

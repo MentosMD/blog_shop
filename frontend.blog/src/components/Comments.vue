@@ -1,7 +1,7 @@
 <template>
     <div class="row blog-comments">
         <div class="comment" v-for="comment in comments">
-            <h4><i class="fas fa-user"></i> {{ comment.firstname }}&nbsp;{{ comment.lastname }}</h4>
+            <h5><i class="fas fa-user"></i> {{ comment.firstname }}&nbsp;{{ comment.lastname }}</h5>
             <p>{{ comment.comment }}</p>
             <span>{{ comment.created_date }}</span>
         </div>

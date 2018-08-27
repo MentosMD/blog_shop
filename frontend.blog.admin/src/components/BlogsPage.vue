@@ -15,6 +15,9 @@
                      </button>
                  </template>
              </b-table>
+             <div class="row" style="display: flex; justify-content: flex-end">
+                 <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="" />
+             </div>
          </div>
      </div>
 </template>
