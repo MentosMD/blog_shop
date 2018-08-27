@@ -26,6 +26,9 @@
                       <v-comment-form :id="this.$route.params.id"></v-comment-form>
                   </div>
               </template>
+              <template v-else>
+                  <h5 class="text-center margin-top-20">No access to commenting,only authorized user</h5>
+              </template>
           </div>
       </div>
 </template>

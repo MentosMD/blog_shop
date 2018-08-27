@@ -1,6 +1,6 @@
 <template>
      <div class="row">
-         <router-link v-bind:to="`blog/detail/${id}`" class="blog-item-title link col-md-10">
+         <router-link v-bind:to="{name: 'blog_detail', params: {id: id}}" class="blog-item-title link col-md-10">
              {{ title }}
          </router-link>
          <div>
