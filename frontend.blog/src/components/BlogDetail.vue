@@ -17,8 +17,16 @@
                       <strong>Rating:</strong> {{_resultRatings(get_ratings)}}
                   </div>
               </div>
-              <div class="row">
-                  <i class="fas fa-user"></i>&nbsp;<strong>By:</strong>&nbsp;<router-link :to="{ name: 'user_detail', params: { id: author.id }}">{{author.firstname}}&nbsp;{{author.lastname}}</router-link>
+              <div class="row position">
+                  <div class="col-md-4">
+                      <i class="fas fa-user"></i>&nbsp;<strong>By:</strong>&nbsp;<router-link :to="{ name: 'user_detail', params: { id: author.id }}">{{author.firstname}}&nbsp;{{author.lastname}}</router-link>
+                  </div>
+                  <div class="col-md-3">
+                      <button @click="like" class="btn btn-outline-primary">
+                          <i class="fas fa-thumbs-up"></i>
+                      </button>
+                      <span>{{ likes.length }}</span>
+                  </div>
               </div>
               <v-comments :comments="this.comments"></v-comments>
               <template v-if="token !== null">
@@ -58,7 +66,8 @@
                 comments: [],
                 ratings: 0,
                 get_ratings: [],
-                author: {}
+                author: {},
+                likes: []
             }
         },
         mounted(){
@@ -69,6 +78,7 @@
                     console.log(res.user);
                     self.author = res.profile[0];
                     self.blog = res.blog;
+                    self.likes = res.blog.likes;
                     self.comments = res.comments;
                     self.get_ratings = res.blog.ratings;
                     self.ratings =  self._resultRatings(self.ratings);
@@ -94,6 +104,18 @@
                 });
                 blogRating = parseInt(total / rates.length);
                 return blogRating;
+            },
+            like() {
+                axios.post(config.API_BLOG_LIKE_ADD, {
+                    count: 1,
+                    token: localStorage.getItem('access_token'),
+                    blog_id: this.$route.params.id
+                }).then(data => {
+                    this.notify('Successfully voted', 'success');
+                }).catch(err => {
+                    let data = err.response.data;
+                    this.notify(data.message, 'error');
+                });
             },
             ratingSelect(e) {
                 axios.post(config.API_BLOG_RATING, {

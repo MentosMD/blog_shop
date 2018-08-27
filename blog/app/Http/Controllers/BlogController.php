@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\Comment;
+use App\Like;
 use App\Profile;
 use App\Rating;
 use App\User;
@@ -40,6 +41,7 @@ class BlogController extends Controller
             ));
         }
         $blog->ratings;
+        $blog->likes;
         return response()->json(['success' => 'OK',
             'response' => array(
                 'blog' => $blog,
@@ -55,5 +57,33 @@ class BlogController extends Controller
             ->where('blog_title', 'like', '%%'.$title.'%%')
             ->get();
         return response()->json(['success' => 'OK', 'response' => $result]);
+    }
+
+    public function addLike(Request $request)
+    {
+        $token = $request->input('token');
+        $count = $request->input('count');
+        $blog_id = $request->input('blog_id');
+        $user = DB::table('blog_user')
+            ->where('token', '=', $token)
+            ->get();
+        $user_id = $user->pluck('id')[0];
+        $likes = DB::table('blog_like')
+                    ->where([
+                        ['user_id', '=', $user_id],
+                        ['blog_id', '=', $blog_id]
+                    ])->get();
+        if (!count($likes)) {
+            $resp = [
+                'count' => $count,
+                'blog_id' => $blog_id,
+                'user_id' => $user_id
+            ];
+            $Like = new Like();
+            $Like->insert($resp);
+            return response()->json(['success' => 'ok'], 200);
+        } else {
+            return response()->json(['error', 'message' => 'You have put like!'], 400);
+        }
     }
 }

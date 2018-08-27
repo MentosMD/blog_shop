@@ -15,6 +15,7 @@ Route::get('/api/v1/blog/all', 'BlogController@getAll')->name('blogs');
 Route::get('/api/v1/blog/get/{id}', 'BlogController@getById')->name('get_blog');
 Route::post('/api/v1/blog/search', 'BlogController@searchById')->name('blog_search');
 Route::post('/api/v1/blog/rating', 'BlogRatingController@add');
+Route::post('/api/v1/blog/like/add', 'BlogController@addLike');
 
 Route::post('/api/v1/comment/add', 'CommentController@create');
 Route::get('/api/v1/comments', 'CommentController@index');

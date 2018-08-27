@@ -4,6 +4,7 @@ export const API_BLOG_ALL = URL_BASE + '/api/v1/blog/all';
 export const API_BLOG_GET = URL_BASE + '/api/v1/blog/get/';
 export const API_BLOG_SEARCH = URL_BASE + '/api/v1/blog/search';
 export const API_BLOG_RATING = URL_BASE + '/api/v1/blog/rating';
+export const API_BLOG_LIKE_ADD = URL_BASE + '/api/v1/blog/like/add';
 
 export const API_COMMENT_ADD = URL_BASE + '/api/v1/comment/add';
 

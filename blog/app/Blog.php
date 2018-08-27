@@ -22,6 +22,11 @@ class Blog extends Model
         return $this->hasMany(Rating::class, 'blog_id', 'id');
     }
 
+    public function likes()
+    {
+        return $this->hasMany(Like::class, 'blog_id', 'id');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'id', 'user_id');
