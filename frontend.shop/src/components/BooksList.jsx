@@ -48,7 +48,7 @@ class BookItem extends React.Component
             <div className="row book-item">
                 <NotificationSystem ref="notificationSystem" />
                 <div className="col-md-4">
-                    <img src={require(`../assets/img/${image}`)} width={100} height={100} />
+                    { image != null ? <img src={require(`../assets/img/${image}`)} width={100} height={100} /> : null }
                 </div>
                 <p>{title}</p>
                 <strong className="price">{price}$</strong>

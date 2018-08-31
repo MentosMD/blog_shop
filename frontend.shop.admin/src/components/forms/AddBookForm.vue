@@ -69,7 +69,7 @@
                     author: '',
                     price: null,
                     description: '',
-                    image: 'example'
+                    image: ''
                 },
                 img: '',
                 errors: {
@@ -94,6 +94,7 @@
                 axios.post(config.API_ADMIN_BOOK_ADD, self.book)
                     .then((data) => {
                         this.notify('Successfully added book!', 'success');
+                        location.replace('/');
                         this.errors = {};
                     }).catch((err) => {
                         let errors = err.response.data[0];

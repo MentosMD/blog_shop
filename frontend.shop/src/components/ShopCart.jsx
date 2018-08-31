@@ -25,6 +25,7 @@ class ItemCart extends React.Component
 
     _onChange(e)
     {
+        this.props.onChange(e);
         let state = this.state;
         let value = e.target.value;
         let name = e.target.name;
@@ -74,10 +75,12 @@ export default class ShopCart extends React.Component
     {
         super(props);
         this.state = {
-            products: []
+            products: [],
+            quantity: 1
         };
         this._total = this._total.bind(this);
         this._clearCart = this._clearCart.bind(this);
+        this._onChange = this._onChange.bind(this);
     }
 
     componentDidMount()
@@ -107,6 +110,19 @@ export default class ShopCart extends React.Component
         location.reload();
     }
 
+    _onChange(e) {
+        let state = this.state;
+        let value = e.target.value;
+        let name = e.target.name;
+        if(value === 0 || value < 0)
+        {
+            state[name] = 1;
+        } else {
+            state[name] = value;
+        }
+        this.setState(state);
+    }
+
     render()
     {
 
@@ -116,7 +132,7 @@ export default class ShopCart extends React.Component
         {
             let product = state.products[i];
             products.push(
-                <ItemCart data={product}/>
+                <ItemCart data={product} onChange={this._onChange}/>
             );
         }
         return(

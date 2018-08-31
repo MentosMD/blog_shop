@@ -6,7 +6,7 @@
                      :items="orders"
                      :fields="fields">
                 <template slot="Detail" slot-scope="data">
-                    <router-link title="Detail" v-bind:to="`order/detail/${data.item.OrderId}`" class="btn btn-outline-primary">
+                    <router-link title="Detail" v-bind:to="`order/detail/${data.item.id}`" class="btn btn-outline-primary">
                         <i class="fas fa-eye"></i>
                     </router-link>
                 </template>
@@ -28,28 +28,16 @@
               orders: [],
               fields: [
                   {
-                      key: 'OrderId',
+                      key: 'id',
                       label: 'ID'
                   },
                   {
-                      key: 'name',
-                      label: 'Name'
+                      key: 'OrderDate',
+                      label: 'Date'
                   },
                   {
-                      key: 'email',
-                      label: 'Email'
-                  },
-                  {
-                      key: 'phone',
-                      label: 'Phone'
-                  },
-                  {
-                      key: 'city',
-                      label: 'City'
-                  },
-                  {
-                      key: 'address',
-                      label: 'Address'
+                      key: 'OrderQuantity',
+                      label: 'Quantity'
                   },
                   {
                       key: 'Detail',

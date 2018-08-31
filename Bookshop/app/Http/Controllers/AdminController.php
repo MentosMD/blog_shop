@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Customer;
 use App\Order;
 use Faker\Provider\Image;
 use Illuminate\Http\Request;
@@ -30,13 +31,18 @@ class AdminController extends Controller
 
     public function getDetailOrder(Request $request, $id)
     {
-        $order = DB::table('orders')->select()
-                ->where('OrderId', '=', $id)
-                ->get();
+        $order = Order::findOrFail($id);
         if($order == null){
             return response()->json(['error' => true], 404);
         }
-        return response()->json(['success' => 'OK', 'response' => $order], 200);
+        $customer = Customer::findOrFail($order->pluck('customer_id')[0]);
+        return response()->json([
+            'success' => 'OK',
+            'response' => array(
+                'order' => $order,
+                'customer' => $customer
+            )
+        ], 200);
     }
 
     public function deleteBook(Request $request, $id)

@@ -9,9 +9,6 @@
                      :filter="filter"
                      @filtered="onFiltered"
             >
-                <template slot="Image" slot-scope="data">
-                    <img :src="require(`../assets/images/${data.item.image}`)" width="50" height="50" />
-                </template>
                 <template slot="Delete" slot-scope="data">
                     <button class="btn btn-outline-danger" @click="deleteBook(data.item.id)">
                         <i class="fas fa-trash-alt"></i>
