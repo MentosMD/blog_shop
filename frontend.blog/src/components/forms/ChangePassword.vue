@@ -4,12 +4,14 @@
             <div class="col-md-4 margin-top-15">
                 <b-form-input v-model="password"
                               type="password"
-                              placeholder="Password"></b-form-input>
+                              placeholder="Password"
+                              required></b-form-input>
             </div>
             <div class="col-md-4 margin-top-15">
                 <b-form-input v-model="repeat_password"
                               type="password"
-                              placeholder="Repeat Password"></b-form-input>
+                              placeholder="Repeat Password"
+                              required></b-form-input>
             </div>
             <div>
                 <button type="submit" class="btn btn-outline-success margin-top-15 offset-md-1">

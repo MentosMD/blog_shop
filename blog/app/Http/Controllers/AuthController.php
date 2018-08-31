@@ -23,8 +23,8 @@ class AuthController extends Controller
             'login' => 'required|max:100',
             'email' => 'required|email|max:100',
             'password' => 'required|max:255',
-            'first_name' => 'required|max:255',
-            'last_name' => 'required|max:255'
+            'first_name' => 'max:255',
+            'last_name' => 'max:255'
         ]);
         if($valid->fails()) {
             return response()->json(['success' => 'error', 'response' => $valid->errors()],400);
