@@ -20,7 +20,6 @@ class BooksTable extends Migration
             $table->string('author', 100);
             $table->integer('pages');
             $table->float('price');
-            $table->string('image')->nullable();
         });
     }
 

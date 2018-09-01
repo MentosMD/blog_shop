@@ -37,10 +37,6 @@ export default class DetailBook extends React.Component
     render()
     {
         let {book} = this.state;
-        if (book.image === undefined)
-        {
-            return null;
-        }
         return(
             <div className="row clearfix">
                 <Head/>

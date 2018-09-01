@@ -37,22 +37,21 @@ class BookItem extends React.Component
 
     _addToCart()
     {
-        window.sessionStorage.setItem(this.state.data.id, JSON.stringify(this.state.data));
+        let data = this.state.data;
+        data.quantity = 1;
+        window.sessionStorage.setItem(this.state.data.id, JSON.stringify(data));
         this._addNotification('Successfully added in cart', 'success');
     }
 
     render()
     {
-        let { image, title, price, id } = this.props.data;
+        let { title, price, id } = this.props.data;
         return(
-            <div className="row book-item">
+            <div className="book-item">
                 <NotificationSystem ref="notificationSystem" />
-                <div className="col-md-4">
-                    { image != null ? <img src={require(`../assets/img/${image}`)} width={100} height={100} /> : null }
-                </div>
-                <p>{title}</p>
+                <div className="row book-title"><p>{title}</p></div>
                 <strong className="price">{price}$</strong>
-                <div className="row display-flex-end">
+                <div className="row">
                     <Link className="btn btn-outline-primary" style={{marginRight: '10px'}} to={"/book/detail/" + id}>Detail</Link>
                     <button className="btn btn-outline-info" onClick={this._addToCart}>Add To Cart</button>
                 </div>
@@ -138,7 +137,7 @@ export default class BooksList extends React.Component
         let items = [];
         this.state.pageOfItems.map((item) => {
                 items.push(
-                    <div className="col-md-5">
+                    <div className="book col-md-3 margin-top-35 padd-0 margin-left-40">
                         <BookItem data={item} />
                     </div>
                 );

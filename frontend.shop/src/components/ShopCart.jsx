@@ -8,7 +8,7 @@ class ItemCart extends React.Component
     {
         super(props);
         this.state = {
-            quantity: 1
+            quantity: this.props.data.quantity
         };
         this._removeItem = this._removeItem.bind(this);
         this._onChange = this._onChange.bind(this);
@@ -25,7 +25,7 @@ class ItemCart extends React.Component
 
     _onChange(e)
     {
-        this.props.onChange(e);
+        this.props.onChange(e, this.props.data.id);
         let state = this.state;
         let value = e.target.value;
         let name = e.target.name;
@@ -40,13 +40,10 @@ class ItemCart extends React.Component
 
     render()
     {
-        let { image, title, price } = this.props.data;
+        let { title, price } = this.props.data;
         return(
             <div className="row" style={{padding: '5px', height: '109px'}}>
-                    <div className="col-md-2">
-                        <img src={require(`../assets/img/${image}`)} width={100} height={100} />
-                    </div>
-                    <div className="col-md-2 padd-0" style={{lineHeight: '92px'}}>
+                    <div className="col-md-5" style={{lineHeight: '92px'}}>
                         <p>{title}</p>
                     </div>
                     <div className="col-md-2">
@@ -56,7 +53,7 @@ class ItemCart extends React.Component
                              onChange={this._onChange}
                          />
                     </div>
-                    <div className="col-md-6" style={{display: 'flex', justifyContent: 'flex-end'}}>
+                    <div className="col-md-5" style={{display: 'flex', justifyContent: 'flex-end', marginTop: '19px'}}>
                         <strong className="book-price">{price * this.state.quantity}$</strong>
                         <div className="col-md-1">
                             <button type="button" className="btn btn-outline-danger" onClick={this._removeItem}>
@@ -78,7 +75,6 @@ export default class ShopCart extends React.Component
             products: [],
             quantity: 1
         };
-        this._total = this._total.bind(this);
         this._clearCart = this._clearCart.bind(this);
         this._onChange = this._onChange.bind(this);
     }
@@ -93,38 +89,49 @@ export default class ShopCart extends React.Component
         this.setState({ products: products });
     }
 
-    _total()
-    {
-        let products = this.state.products;
-        let total = 0;
-        for(let i=0; i<products.length; i++)
-        {
-            total += products[i].price;
-        }
-        return total;
-    }
-
     _clearCart()
     {
         sessionStorage.clear();
         location.reload();
     }
 
-    _onChange(e) {
+    _onChange(e, id) {
         let state = this.state;
-        let value = e.target.value;
-        let name = e.target.name;
+        let products = [];
+        for(let i=0; i<sessionStorage.length; i++)
+        {
+            products.push(JSON.parse(sessionStorage.getItem(sessionStorage.key(i))));
+        }
+        let {value,name} = e.target;
         if(value === 0 || value < 0)
         {
             state[name] = 1;
+        } else {state[name] = value;}
+        let res = products.filter(item => {
+            return item.id === id;
+        });
+        if (res.hasOwnProperty('quantity')) {
+            res[0].quantity = 1;
         } else {
-            state[name] = value;
+            res[0].quantity = parseInt(value);
         }
+        window.sessionStorage.setItem(id, JSON.stringify(res[0]));
         this.setState(state);
     }
 
     render()
     {
+        //total price
+        let total = 0;
+        let productss = [];
+        for(let i=0; i<sessionStorage.length; i++)
+        {
+            productss.push(JSON.parse(sessionStorage.getItem(sessionStorage.key(i))));
+        }
+        for(let i=0; i<productss.length; i++)
+        {
+            total += productss[i].price * productss[i].quantity;
+        }
 
         let state = this.state;
         let products = [];
@@ -143,7 +150,7 @@ export default class ShopCart extends React.Component
                          {products}
                          <h1 className="text-secondary text-center">{sessionStorage.length === 0 ? 'Cart is empty' : null}</h1>
                          <div className="total-products">
-                             Total: {this._total()}$
+                             Total: {total}$
                          </div>
                      </div>
                      <div className="row">

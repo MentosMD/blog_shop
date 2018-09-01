@@ -58,7 +58,6 @@ class AdminController extends Controller
         $author = $request->input('author');
         $price = $request->input('price');
         $pages = $request->input('pages');
-        $image = $request->input('image');
 
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:255',
@@ -78,8 +77,7 @@ class AdminController extends Controller
            'description' => $description,
            'author' => $author,
            'price' => $price,
-           'pages' => $pages,
-           'image' => $image
+           'pages' => $pages
         ];
         $book = new Book();
         $book->insert($resp);
