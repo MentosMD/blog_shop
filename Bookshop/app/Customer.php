@@ -10,5 +10,5 @@ class Customer extends Model
        'id', 'name', 'email', 'phone', 'address', 'city'
     ];
 
-    protected $table = "customer";
+    protected $table = "order_customer";
 }

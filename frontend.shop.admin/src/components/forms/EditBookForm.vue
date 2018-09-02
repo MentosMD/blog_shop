@@ -4,12 +4,6 @@
         <div class="container text-align-center padd-top-55">
             <form method="post" action="" class="offset-md-4" @submit.prevent="onSubmit">
                 <div class="col-md-4 margin-top-15">
-                    <img :src="require(`../../assets/images/${book.image}`)" width="100" height="100" />
-                </div>
-                <div class="col-md-4 margin-top-15">
-                    <b-form-file @change="onFileChange"></b-form-file>
-                </div>
-                <div class="col-md-4 margin-top-15">
                     <label class="text-danger">{{ errors.title }}</label>
                     <b-form-input v-model="book.title"
                                   type="text"
@@ -103,9 +97,6 @@
                         }
                        console.log(err);
                 });
-            },
-            onFileChange(e){
-
             }
         }
     }

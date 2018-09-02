@@ -3,14 +3,6 @@
         <head-component></head-component>
         <div class="container padd-top-55">
             <form method="post" class="col-md-8 offset-md-4">
-                <div class="col-md-4">
-                    <div v-if="img.length > 0">
-                        <img :src="img" width="100" height="100" />
-                    </div>
-                    <div class="margin-top-15">
-                        <b-form-file @change="onFileChange"></b-form-file>
-                    </div>
-                </div>
                 <div class="col-md-4 margin-top-15">
                     <label class="text-danger">{{ errors.title }}</label>
                     <b-form-input v-model="book.title"
@@ -68,10 +60,8 @@
                     pages: null,
                     author: '',
                     price: null,
-                    description: '',
-                    image: ''
+                    description: ''
                 },
-                img: '',
                 errors: {
                     title: '',
                     author: '',
@@ -108,22 +98,6 @@
                                 break;
                         }
                 });
-            },
-            onFileChange(e){
-                let file = e.target.files || e.dataTransfer.files;
-                if(!file.length)
-                    return;
-                this.createImage(file[0]);
-            },
-            createImage(file){
-                let reader = new FileReader();
-                let self = this;
-                reader.onload = (e) => {
-                    self.img = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            },
-            testImage(){
             }
         }
     }

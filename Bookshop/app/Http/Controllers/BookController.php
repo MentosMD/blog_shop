@@ -18,12 +18,15 @@ class BookController extends Controller
 
     public function getDetailBook(Request $request, $id)
     {
-        $book = DB::table('books')->find($id);
+        $book = Book::findOrFail($id);
         if($book == null)
         {
             return response()->json(['error' => true], 404);
         }
-        return response()->json(['success' => 'OK', 'response' => $book], 200);
+        return response()->json(['success' => 'OK', 'response' => array(
+            'book' => $book,
+            'comments' => $book->comments
+        )], 200);
     }
 
     public function searchBook(Request $request)

@@ -4,7 +4,6 @@
         <b-modal ref="ModalRef" hide-footer :title="customer.name">
             <div class="d-block text-center">
                 <div class="row order-block margin-top-15" v-for="cart in carts">
-                     <img :src="require(`../assets/images/${cart.image}`)" width="100" height="100"/>
                      <h4 class="order-block-title text-info">{{ cart.title }}</h4>
                      <span class="order-block-price">{{ cart.price }}$</span>
                 </div>

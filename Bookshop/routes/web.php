@@ -18,6 +18,7 @@ Route::post('/api/book/search', 'BookController@searchBook')->name('search-book'
 Route::post('/api/order/add', 'OrderController@addOrder')->name('add-order');
 Route::post('/api/book/search/by/price', 'BookController@getByPrice')->name('search-book-price');
 Route::get('/api/book/price/min/max', 'BookController@getMinPriceMax');
+Route::post('/api/book/comment/add', 'CommentController@add');
 
 /* Admin's routers */
 Route::prefix('api/admin')->group(function (){
