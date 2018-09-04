@@ -15,19 +15,19 @@ class BlogsTableSeeder extends Seeder
               'blog_title' => 'What Is the Bible?',
               'blog_body' => 'example',
               'user_id' => 1,
-              'created_date' => '02/02/2018'
+              'created_date' => '2018-02-02'
         ]);
         DB::table('blog')->insert([
             'blog_title' => 'Bible Facts',
             'blog_body' => 'example',
             'user_id' => 1,
-            'created_date' => '22/06/2018'
+            'created_date' => '2018-06-06'
         ]);
         DB::table('blog')->insert([
             'blog_title' => 'Who wrote the Bible?',
             'blog_body' => 'example',
             'user_id' => 2,
-            'created_date' => '17/07/2018'
+            'created_date' => '2018-08-07'
         ]);
     }
 }

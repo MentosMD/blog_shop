@@ -18,7 +18,7 @@ class BlogController extends Controller
 
     public function getAll(Request $request)
     {
-       $blogs = Blog::all();
+       $blogs = Blog::orderBy('created_date', 'DESC')->get();
        if(count($blogs) == 0) {
            return response()->json(['success' => 'OK', 'response' => 'Blogs is empty'], 200);
        }
