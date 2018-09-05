@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc097971-7e5c-4a77-a78b-f2eda4bb01f4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../frontend.shop/src/assets/img/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend.shop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.shop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend.shop/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.shop/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend.shop/src/components/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend.shop/src/components/ShopCart.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,7 +15,7 @@
     <session id="204426841">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="22" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.134" value="1" />
           <entry key="project.open.time.19" value="1" />
@@ -37,11 +33,13 @@
           <entry key="project.open.time.64" value="1" />
           <entry key="project.open.time.65" value="1" />
           <entry key="project.open.time.66" value="1" />
+          <entry key="project.open.time.69" value="1" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.72" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.80" value="1" />
           <entry key="project.open.time.98" value="1" />
-          <entry key="project.opened" value="25" />
+          <entry key="project.opened" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -66,7 +64,7 @@
           <entry key="js" value="8" />
           <entry key="json" value="1" />
           <entry key="styl" value="6" />
-          <entry key="vue" value="52" />
+          <entry key="vue" value="53" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -76,7 +74,7 @@
           <entry key="JavaScript" value="8" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Stylus" value="5" />
-          <entry key="Vue.js" value="52" />
+          <entry key="Vue.js" value="53" />
         </counts>
       </usages-collector>
     </session>
@@ -227,7 +225,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -250,13 +247,6 @@
               <item name="frontend.blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="frontend.blog" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frontend.blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="frontend.blog" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -269,11 +259,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blog" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -453,16 +444,18 @@
       <workItem from="1535347954938" duration="6710000" />
       <workItem from="1535702065480" duration="930000" />
       <workItem from="1535710908749" duration="656000" />
+      <workItem from="1536084067590" duration="148000" />
+      <workItem from="1536167778946" duration="58000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="238416000" />
+    <option name="totallyTimeSpent" value="238622000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27773345" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28731045" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -537,9 +530,7 @@
     <entry file="file://$PROJECT_DIR$/node_modules/vue/types/options.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/vue2-bootstrap-table2/dist/vue-bootstrap-table.min.js" />
     <entry file="file://$PROJECT_DIR$/src/components/OrdersPage.vue" />
-    <entry file="file://$PROJECT_DIR$/src/assets/images/first_player.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/images/first_player.jpg" />
     <entry file="file://$PROJECT_DIR$/src/components/BookDetail.vue" />
     <entry file="file://$PROJECT_DIR$/../frontend.shop/package.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -618,13 +609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="313">
           <caret line="66" column="27" lean-forward="true" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CommentForm.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="52" column="35" lean-forward="true" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -728,6 +712,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/BlogList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
@@ -735,10 +726,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/BlogList.vue">
+    <entry file="file://$PROJECT_DIR$/src/components/CommentForm.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        <state relative-caret-position="231">
+          <caret line="52" column="35" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
         </state>
       </provider>
     </entry>

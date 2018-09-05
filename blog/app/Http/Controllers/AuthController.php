@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Password;
 
 class AuthController extends Controller
 {
@@ -18,7 +19,7 @@ class AuthController extends Controller
         $password = $request->input('password');
         $first_name = $request->input('first_name');
         $last_name = $request->input('last_name');
-        $token = str_random(50);
+        $token = uniqid(base64_encode(str_random(60)));
         $valid = \Validator::make($request->all(), [
             'login' => 'required|max:100',
             'email' => 'required|email|max:100',
