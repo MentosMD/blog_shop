@@ -22,7 +22,7 @@ class OrderController extends Controller
         $cart = $request->input('cart');
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:5',
+            'name' => 'required|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required',
             'address' => 'required|max:255',
