@@ -159,7 +159,7 @@ export default class ShopCart extends React.Component
                                <button className="btn btn-info margin-left-80" onClick={this._clearCart}>Clear cart</button>
                                : null}
                              {sessionStorage.length > 0 ?
-                              <a href="/checkout" className="link-checkout">
+                              <a href="#/checkout" className="link-checkout">
                                  Checkout
                              </a> : null}
                          </div>

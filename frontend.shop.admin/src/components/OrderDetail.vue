@@ -20,10 +20,16 @@
             <h3 class="text-info txt">OrderDate: {{ this.order.OrderDate }}</h3>
             <h3 class="text-info txt">Quantity: {{ this.order.OrderQuantity }}</h3>
             <h3 class="text-info txt">Total: {{ this.order.OrderTotal }}$</h3>
+            <div>
+                <i class="fas fa-check done" v-if="order.status === 'done'"></i>
+                <i class="fas fa-times refused" v-if="order.status === 'refused'"></i>
+            </div>
             <button class="btn btn-outline-success" @click="showModal">Orders</button>
             <button class="btn btn-outline-danger" @click="deleteOrder">
                 <i class="fas fa-trash-alt"></i>
             </button>
+            <button class="btn btn-outline-info" @click="done" v-if="order.status === null">Done</button>
+            <button class="btn btn-outline-danger" @click="refused" v-if="order.status === null">Refused</button>
         </div>
     </div>
 </template>
@@ -76,6 +82,20 @@
                         location.replace('#/admin/orders');
                     })
                     .catch((err) => {});
+            },
+            ajaxStatus(status, message) {
+                axios.post(config.API_ADMIN_ORDER_STATUS, {
+                    order_id: this.$route.params.id,
+                    status: status
+                }).then(data => {
+                    this.notify(message, 'success');
+                }).catch();
+            },
+            done() {
+                this.ajaxStatus('done', 'This order have done');
+            },
+            refused() {
+                this.ajaxStatus('refused', 'This order have refused');
             }
         }
     }
@@ -89,4 +109,10 @@
         font-family sans-serif
     .txt
         font-size 19px
+    .done
+        color green
+        font-size 23px
+    .refused
+        color red
+        font-size 23px
 </style>

@@ -38,7 +38,7 @@
                     </b-form-textarea>
                 </div>
                 <div class="col-md-1 margin-top-15 offset-md-1">
-                    <button type="button" class="btn btn-outline-success" @click="onSubmit">Send</button>
+                    <button type="button" class="btn btn-outline-success" @click="onSubmit">Add book</button>
                 </div>
             </form>
         </div>

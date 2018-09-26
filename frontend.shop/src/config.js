@@ -8,3 +8,7 @@ export const API_BOOK_PRICE_MIN_MAX = URL_BASE + '/api/book/price/min/max';
 export const API_BOOK_COMMENT_ADD = URL_BASE + '/api/book/comment/add';
 
 export const API_ORDER_ADD = URL_BASE + '/api/order/add';
+
+export const API_USER_LOGIN = 'http://127.0.0.1:5000/api/v1/user/login';
+export const API_USER_REGISTER = 'http://127.0.0.1:5000/api/v1/user/register';
+export const API_USER_PASSWORD_UPDATE = 'http://127.0.0.1:5000/api/v1/user/password/update';

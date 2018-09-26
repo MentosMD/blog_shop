@@ -1,12 +1,14 @@
 import React from 'react'
 import {render} from 'react-dom'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import createBrowserHistory from 'history/createBrowserHistory'
+import { HashRouter, Route, Switch} from 'react-router-dom'
 import Head from './Head.jsx'
 import ShopCart from './ShopCart.jsx'
 import MainPage from './MainPage.jsx'
 import DetailBook from './DetailBook.jsx'
 import OrderForm from './FormOrder.jsx'
+import Login from './forms/Login.jsx'
+import Register from './forms/Register.jsx'
+import Profile from './Profile.jsx'
 
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -28,13 +30,16 @@ class App extends React.Component {
         );
     }
 }
-const history = createBrowserHistory();
-render(<Router>
+
+render(<HashRouter>
             <Switch>
                 <Route exact path="/" component={App}/>
                 <Route path="/shopcart" component={ShopCart}/>
                 <Route path="/checkout" component={OrderForm}/>
                 <Route path="/book/detail/:id" component={DetailBook}/>
+                <Route path="/login" component={Login}/>
+                <Route path="/register" component={Register}/>
+                <Route path="/profile" component={Profile}/>
             </Switch>
-    </Router>
+    </HashRouter>
     , document.getElementById('app'));

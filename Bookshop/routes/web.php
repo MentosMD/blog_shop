@@ -30,4 +30,5 @@ Route::prefix('api/admin')->group(function (){
     Route::get('orders', 'AdminController@getAllOrders');
     Route::get('order/{id}', 'AdminController@getDetailOrder');
     Route::get('order/delete/{id}', 'AdminController@deleteOrder');
+    Route::post('order/status', 'OrderController@status');
 });

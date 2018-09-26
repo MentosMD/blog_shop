@@ -19,6 +19,7 @@ class VerifyCsrfToken extends Middleware
         '/api/book/search/by/price',
         '/api/admin/image/upload',
         '/api/admin/book/update',
-        '/api/book/comment/add'
+        '/api/book/comment/add',
+        '/api/admin/order/status'
     ];
 }

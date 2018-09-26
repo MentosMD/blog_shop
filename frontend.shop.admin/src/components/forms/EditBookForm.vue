@@ -38,7 +38,7 @@
                     </b-form-textarea>
                 </div>
                 <div class="col-md-1 offset-md-1 margin-top-15">
-                    <button type="submit" class="btn btn-outline-success">Edit</button>
+                    <button type="submit" class="btn btn-outline-success">Save</button>
                 </div>
             </form>
         </div>

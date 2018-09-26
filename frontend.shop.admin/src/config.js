@@ -7,3 +7,4 @@ export const API_ADMIN_BOOK_DELETE = URL_BASE + '/api/admin/book/delete/';
 export const API_ADMIN_ORDERS = URL_BASE + '/api/admin/orders';
 export const API_ADMIN_GET_ORDER = URL_BASE + '/api/admin/order/';
 export const API_ADMIN_DELETE_ORDER = URL_BASE + '/api/admin/order/delete/';
+export const API_ADMIN_ORDER_STATUS = URL_BASE + '/api/admin/order/status';

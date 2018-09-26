@@ -28,7 +28,7 @@ export default class CommentForm extends React.Component {
             book_id: book.book_id
         }).then(data => {
             setTimeout(() => {
-                location.replace('/');
+                location.reload();
             }, 1000);
         }).catch(err => {
             console.log(err);
