@@ -17,7 +17,18 @@ class UpdateProfile extends React.Component {
 
     _onSubmit(e) {
         e.preventDefault();
-        axios.post().then().catch();
+        let s = this.state;
+        axios.post(config.API_PROFILE_UPDATE, {
+             first_name: s.user.first_name,
+             last_name: s.user.last_name,
+             age: s.user.age,
+             about: s.user.about,
+             address: s.user.address,
+             city: s.user.city,
+             phone: s.user.phone,
+             email: s.user.email
+        }).then()
+          .catch();
     }
 
     _onChange(e) {
@@ -51,6 +62,34 @@ class UpdateProfile extends React.Component {
                                   value={this.state.user.age}
                        />
                    </div>
+                   <div className="col-md-4">
+                       <TextField type="email"
+                                  placeholder="Email"
+                                  name="email"
+                                  value={this.state.user.email}
+                       />
+                   </div>
+                   <div className="col-md-4">
+                       <TextField type="text"
+                                  placeholder="City"
+                                  name="city"
+                                  value={this.state.user.city}
+                       />
+                   </div>
+                   <div className="col-md-4">
+                       <TextField type="text"
+                                  placeholder="Address"
+                                  name="address"
+                                  value={this.state.user.address}
+                       />
+                   </div>
+                   <div className="col-md-4">
+                       <TextField type="text"
+                                  placeholder="Phone"
+                                  name="phone"
+                                  value={this.state.user.phone}
+                       />
+                   </div>
                    <div className="col-md-1 offset-md-1">
                        <button type="submit" className="btn btn-outline-success">Update</button>
                    </div>
@@ -64,7 +103,9 @@ class ChangePassword extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            token: localStorage.getItem('access_token'),
+            password: '',
+            repeat_password: ''
         },
         this._onSubmit = this._onSubmit.bind(this);
         this._onChange = this._onChange.bind(this);
@@ -72,7 +113,10 @@ class ChangePassword extends React.Component {
 
     _onSubmit(e) {
         e.preventDefault();
-        axios.post().then().catch();
+        axios.post(config.API_USER_PASSWORD_UPDATE, {
+            password: this.state.password,
+            repeat_password: this.state.repeat_password
+        }).then().catch();
     }
 
     _onChange(e) {
@@ -135,10 +179,16 @@ class Orders extends React.Component {
 export default class Profile extends React.Component {
     constructor(props) {
         super(props)
+        this._deleteProfile = this._deleteProfile.bind(this);
     }
 
     componentDidMount() {
        // axios.get().then().catch();
+    }
+
+    _deleteProfile() {
+        axios.get(config.API_PROFILE_DELETE)
+            .then().catch();
     }
 
     render(){
@@ -158,6 +208,9 @@ export default class Profile extends React.Component {
                         </Tab>
                         <Tab eventKey={4} title="Orders">
                             <Orders/>
+                        </Tab>
+                        <Tab eventKey={5} title="Delete">
+                             <button className="btn btn-outline-danger" onClick={this._deleteProfile}>Delete</button>
                         </Tab>
                     </Tabs>
                 </div>
