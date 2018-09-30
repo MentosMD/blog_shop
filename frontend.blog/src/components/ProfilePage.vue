@@ -30,6 +30,26 @@
                             ></b-form-textarea>
                         </div>
                         <div class="col-md-4 margin-top-15">
+                            <b-form-input v-model="user.email"
+                                          type="email"
+                                          placeholder="Email"></b-form-input>
+                        </div>
+                        <div class="col-md-4 margin-top-15">
+                            <b-form-input v-model="user.phone"
+                                          type="text"
+                                          placeholder="Phone"></b-form-input>
+                        </div>
+                        <div class="col-md-4 margin-top-15">
+                            <b-form-input v-model="user.address"
+                                          type="text"
+                                          placeholder="Address"></b-form-input>
+                        </div>
+                        <div class="col-md-4 margin-top-15">
+                            <b-form-input v-model="user.city"
+                                          type="text"
+                                          placeholder="City"></b-form-input>
+                        </div>
+                        <div class="col-md-4 margin-top-15">
                             <b-form-select v-model="user.country" :options="countries" />
                         </div>
                         <div class="row margin-top-15 offset-md-1">
@@ -77,7 +97,11 @@
                     lastname: '',
                     age: '',
                     about: '',
-                    country: ''
+                    country: '',
+                    email: '',
+                    address: '',
+                    city: '',
+                    phone: ''
                 },
                 blogs: [],
                 ratings: []

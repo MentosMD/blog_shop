@@ -3,7 +3,6 @@
          <nav class="row menu">
              <ul>
                  <li><a href="/">Blog</a></li>
-                 <li><a href="#/prayers">Prayers</a></li>
                  <li><a target="_blank" href="http://localhost:2000/"><span><i class="fas fa-shopping-cart"></i> Shop</span></a></li>
                  <template v-if="token === null">
                      <li><a href="#/user/register">Register</a></li>

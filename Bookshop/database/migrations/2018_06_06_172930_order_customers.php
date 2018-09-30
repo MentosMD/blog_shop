@@ -17,7 +17,7 @@ class OrderCustomers extends Migration
             $table->integer('OrderQuantity');
             $table->date('OrderDate');
             $table->float('OrderTotal');
-            $table->integer('customer_id');
+            $table->integer('user_id');
             $table->string('status')->nullable();
             $table->text('cart');
         });

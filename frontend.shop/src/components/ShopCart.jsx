@@ -1,6 +1,8 @@
 import React from 'react'
 import Head from './Head.jsx'
 import TextField from './TextField.jsx'
+import axios from "axios";
+import * as config from "../config";
 
 class ItemCart extends React.Component
 {
@@ -77,6 +79,8 @@ export default class ShopCart extends React.Component
         };
         this._clearCart = this._clearCart.bind(this);
         this._onChange = this._onChange.bind(this);
+        this._addOrder = this._addOrder.bind(this);
+        this._total = this._total.bind(this);
     }
 
     componentDidMount()
@@ -87,6 +91,29 @@ export default class ShopCart extends React.Component
             products.push(JSON.parse(sessionStorage.getItem(sessionStorage.key(i))));
         }
         this.setState({ products: products });
+    }
+
+    _total()
+    {
+        let products = this.state.products;
+        let total = 0;
+        for(let i=0; i<products.length; i++)
+        {
+            total += products[i].price;
+        }
+        return total;
+    }
+
+    _addOrder() {
+        axios.post(config.API_ORDER_ADD, {
+            token: localStorage.getItem('access_token'),
+            OrderQuantity: this.state.quantity,
+            OrderTotal: this._total(),
+            cart: JSON.stringify(this.state.products)
+        }).then((data) => {
+                sessionStorage.clear();
+                location.replace('/');
+            }).catch(err => {});
     }
 
     _clearCart()
@@ -159,9 +186,9 @@ export default class ShopCart extends React.Component
                                <button className="btn btn-info margin-left-80" onClick={this._clearCart}>Clear cart</button>
                                : null}
                              {sessionStorage.length > 0 ?
-                              <a href="#/checkout" className="link-checkout">
-                                 Checkout
-                             </a> : null}
+                                 <button className="link-checkout" onClick={this._addOrder}>
+                                     Order
+                                 </button> : null}
                          </div>
                      </div>
                  </div>

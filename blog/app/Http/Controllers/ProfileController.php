@@ -80,6 +80,16 @@ class ProfileController extends Controller
        return response()->json(['success' => 'OK', 'response' => array('blogs' => $blogs,'ratings' => $ratings)], 200);
     }
 
+    public function getOrdersUser(Request $request)
+    {
+        $token = $request->input('token');
+        $user = DB::table('blog_user')->where('token', '=', $token)
+            ->get();
+        $orders = DB::table('orders')->where('user_id', '=', $user->pluck('id')[0])
+            ->get();
+        return response()->json(['success' => 'OK', 'response' => $orders], 200);
+    }
+
     public function addBlog(Request $request)
     {
         $token = $request->input('token');
