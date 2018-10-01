@@ -63,6 +63,9 @@
                 <b-tab title="Articles" >
                     <blogs-table :blogs="blogs" :ratings="ratings"></blogs-table>
                 </b-tab>
+                <b-tab title="Orders" >
+                    <orders-table :orders="orders"></orders-table>
+                </b-tab>
                 <b-tab title="Delete Profile">
                     <button type="button" class="btn btn-outline-danger margin-top-15" @click="deleteProfile()">Delete Profile</button>
                 </b-tab>
@@ -76,11 +79,13 @@
     import Head from './Head.vue';
     import * as config from '../config';
     import ArticlesProfile from './ArticlesProfile.vue';
+    import OrdersProfile from './OrdersProfile.vue';
     import ChangePassword from './forms/ChangePassword.vue';
     export default {
         components: {
             'v-head': Head,
             'blogs-table': ArticlesProfile,
+            'orders-table': OrdersProfile,
             'pass-change': ChangePassword
         },
         data() {
@@ -104,7 +109,8 @@
                     phone: ''
                 },
                 blogs: [],
-                ratings: []
+                ratings: [],
+                orders: []
             }
         },
         mounted() {
@@ -123,6 +129,12 @@
                     this.ratings = res.ratings;
                 }
             ).catch(err => {});
+
+            axios.post(config.API_USER_ORDERS, {
+                token: localStorage.getItem('access_token')
+            }).then(data => {
+                this.orders = data.data.response;
+            }).catch();
         },
         methods: {
             notify(text, type){
@@ -140,6 +152,10 @@
                     age: self.user.age,
                     about: self.user.about,
                     country: self.user.country,
+                    email: self.user.email,
+                    address: self.user.address,
+                    city: self.user.city,
+                    phone: self.user.phone,
                     token: this.token
                 }).then(data => {
                     self.notify('Successfully updated profile!', 'success');

@@ -28,7 +28,7 @@ export default class Register extends React.Component {
              email: state.email,
              password: state.password,
         }).then(data => {
-            loation.replace('/');
+            location.replace('/');
         }).catch();
     }
 

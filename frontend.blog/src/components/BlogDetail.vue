@@ -112,6 +112,9 @@
                     blog_id: this.$route.params.id
                 }).then(data => {
                     this.notify('Successfully voted', 'success');
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1000);
                 }).catch(err => {
                     let data = err.response.data;
                     this.notify(data.message, 'error');
@@ -124,6 +127,9 @@
                       blog_id: this.$route.params.id
                 }).then(data => {
                         this.notify('Successfully voted', 'success');
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1000);
                     }).catch(err => {
                         this.notify('You have voted!', 'error');
                     });

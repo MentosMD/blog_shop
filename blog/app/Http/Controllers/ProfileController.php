@@ -38,6 +38,9 @@ class ProfileController extends Controller
         $valid = Validator::make($request->all(), [
             'first_name' => 'max:100',
             'last_name' => 'max:100',
+            'email' => 'max:100',
+            'city' => 'max:100',
+            'address' => 'max:100'
         ]);
         if($valid->fails()) {
             return response()->json(['success' => 'error', 'response' => $valid->errors()], 400);
@@ -55,7 +58,11 @@ class ProfileController extends Controller
                     'lastname' => $last_name,
                     'age' => $age,
                     'about' => $about,
-                    'country' => $country
+                    'country' => $country,
+                    'address' => $request->input('address'),
+                    'city' => $request->input('city'),
+                    'phone' => $request->input('phone'),
+                    'email' => $request->input('email'),
                 ]);
         return response()->json(['success' => 'ok'], 200);
     }

@@ -10,7 +10,16 @@ class UpdateProfile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: {}
+            user: {
+                first_name: '',
+                last_name: '',
+                age: '',
+                about: '',
+                address: '',
+                city: '',
+                phone: '',
+                email: ''
+            }
         },
         this._onSubmit = this._onSubmit.bind(this);
         this._onChange = this._onChange.bind(this);
@@ -132,14 +141,14 @@ class ChangePassword extends React.Component {
                       onSubmit={this._onSubmit}
                       onChange={this._onChange}>
                     <div className="col-md-4">
-                         <TextField type="text"
+                         <TextField type="password"
                                     placeholder="New password"
                                     name="password"
                                     value={this.state.password}
                          />
                     </div>
                     <div className="col-md-4">
-                        <TextField type="text"
+                        <TextField type="password"
                                    placeholder="Repeat new password"
                                    name="repeat_password"
                                    value={this.state.repeat_password}
@@ -200,11 +209,11 @@ class Orders extends React.Component {
             items = [];
         for (let i=0; i < orders.length; i++) {
             items.push(<tr>
-                <td>{articles[i]['id']}</td>
-                <td>{articles[i]['quantity']}</td>
-                <td>{articles[i]['date']}</td>
-                <td>{articles[i]['total']}</td>
-                <td>{articles[i]['status']}</td>
+                <td>{orders[i]['id']}</td>
+                <td>{orders[i]['OrderQuantity']}</td>
+                <td>{orders[i]['OrderDate']}</td>
+                <td>{orders[i]['OrderTotal']}</td>
+                <td>{orders[i]['status']}</td>
             </tr>);
         }
         return(
