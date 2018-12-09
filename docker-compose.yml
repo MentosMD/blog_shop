@@ -68,3 +68,25 @@ services:
          - "3000:3000"
        links:
          - web             
+
+    front_blog:
+       build: ./frontend.blog
+       container_name: front_blog 
+       restart: always
+       volumes:
+         - ./frontend.blog:/app
+       ports:
+         - "4999:4999" 
+       links:
+         - web   
+
+    front_blog_admin:
+       build: ./frontend.blog.admin
+       container_name: front_blog_admin
+       restart: always
+       volumes:
+         - ./frontend.blog.admin:/app
+       ports:
+         - "2002:2002" 
+       links:
+         - web        
