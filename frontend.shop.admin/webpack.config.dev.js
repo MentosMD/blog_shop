@@ -10,6 +10,7 @@ module.exports = {
     './src/app.js'
   ],
   devServer: {
+      host: '0.0.0.0',
       hot: true,
       historyApiFallback: true,
       port: 3000

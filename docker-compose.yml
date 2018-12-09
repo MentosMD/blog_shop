@@ -1,0 +1,70 @@
+version: '3.1'
+
+services:
+    web:
+      build: ./web
+      container_name: web
+      environment:
+        - APACHE_RUN_USER=#1000
+      volumes:
+        - ${APP_PATH_HOST}:${APP_PATH_CONTAINER}
+      ports:
+        - 8080:80
+      working_dir: ${APP_PATH_CONTAINER}
+    
+    backend_blog:
+      build: ./blog
+      container_name: backend_blog
+      environment:
+        - APACHE_RUN_USER=#1000
+      volumes:
+        - ${APP_PATH_HOST_BLOG}:${APP_PATH_CONTAINER}
+      ports:
+        - 5000:5000
+      working_dir: ${APP_PATH_CONTAINER}  
+
+    adminer:
+      image: adminer
+      container_name: adminer
+      restart: always
+      ports: 
+        - 6080:8080
+
+    db:
+      image: mariadb
+      restart: always
+      container_name: db
+      environment:
+        MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}      
+      volumes:
+        - ${DB_PATH_HOST}:/var/lib/mysql
+    
+    composer:
+      image: composer:1.6
+      container_name: composer
+      volumes:
+        - ${APP_PATH_HOST}:${APP_PATH_CONTAINER}  
+      working_dir: ${APP_PATH_CONTAINER}    
+      command: composer install  
+
+    front_shop:
+      build: ./frontend.shop
+      container_name: front_shop
+      restart: always
+      volumes: 
+        - ./frontend.shop:/app
+      ports:
+        - "2000:2000"
+      links:
+        - web 
+
+    front_shop_admin:
+       build: ./frontend.shop.admin
+       container_name: front_shop_admin
+       restart: always
+       volumes:
+         - ./frontend.shop.admin:/app
+       ports:
+         - "3000:3000"
+       links:
+         - web             

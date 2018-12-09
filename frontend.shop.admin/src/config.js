@@ -1,4 +1,4 @@
-const URL_BASE = 'http://127.0.0.1:8000';
+const URL_BASE = 'http://127.0.0.1:8080/public';
 export const API_ADMIN_BOOKS = URL_BASE + '/api/admin/books';
 export const API_ADMIN_BOOK = URL_BASE + '/api/admin/book/detail/';
 export const API_ADMIN_BOOK_ADD = URL_BASE + '/api/admin/book/add';

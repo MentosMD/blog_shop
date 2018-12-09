@@ -9,6 +9,7 @@ module.exports = {
     './src/components/App.jsx'
   ],
   devServer: {
+    host: '0.0.0.0',
     hot: true,
     historyApiFallback: true,
     port: 2000

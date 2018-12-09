@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/api/books', 'BookController@getALl')->name('books');
+Route::get('/api/books', 'BookController@getAll')->name('books');
 Route::get('/api/book/detail/{id}', 'BookController@getDetailBook')->name('detail-book');
 Route::post('/api/book/search', 'BookController@searchBook')->name('search-book');
 
