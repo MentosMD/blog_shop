@@ -9,7 +9,8 @@ export default class Login extends React.Component {
         super(props);
         this.state = {
             login: '',
-            password: ''
+            password: '',
+            error: ''
         },
         this._onSubmit = this._onSubmit.bind(this);
         this._onChange = this._onChange.bind(this);
@@ -26,7 +27,9 @@ export default class Login extends React.Component {
             setTimeout(() => {
                 location.replace('/');
             }, 1000);
-        }).catch();
+        }).catch(err => {
+            this.setState({ error: err.response.data.message });
+        });
     }
 
     _onChange(e) {
@@ -38,6 +41,7 @@ export default class Login extends React.Component {
             <div>
                 <Head/>
                 <h2 className="text-center">Login</h2>
+                <p className="text-center" style={{ color: 'red' }}>{this.state.error}</p>
                 <form action="#" method="post" className="col-md-7 offset-md-5"
                       onSubmit={this._onSubmit}
                       onChange={this._onChange}>

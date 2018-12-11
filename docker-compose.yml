@@ -12,17 +12,6 @@ services:
         - 8080:80
       working_dir: ${APP_PATH_CONTAINER}
     
-    backend_blog:
-      build: ./blog
-      container_name: backend_blog
-      environment:
-        - APACHE_RUN_USER=#1000
-      volumes:
-        - ${APP_PATH_HOST_BLOG}:${APP_PATH_CONTAINER}
-      ports:
-        - 5000:5000
-      working_dir: ${APP_PATH_CONTAINER}  
-
     adminer:
       image: adminer
       container_name: adminer

@@ -20,6 +20,19 @@ class VerifyCsrfToken extends Middleware
         '/api/admin/image/upload',
         '/api/admin/book/update',
         '/api/book/comment/add',
-        '/api/admin/order/status'
+        '/api/admin/order/status',
+        '/api/v1/user/register',
+        '/api/v1/user/login',
+        '/api/v1/user/password/update',
+        '/api/v1/profile',
+        '/api/v1/profile/update',
+        '/api/v1/user/blogs',
+        '/api/v1/user/orders',
+        '/api/v1/profile/blog/add',
+        '/api/v1/profile/delete',
+        '/api/v1/blog/search',
+        '/api/v1/blog/rating',    
+        '/api/v1/blog/like/add',
+        '/api/v1/admin/blog/add'
     ];
 }

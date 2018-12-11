@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     protected $fillable = [
-        'title', 'price', 'pages', 'author', 'description', 'image'
+       'id', 'title', 'price', 'pages', 'author', 'description', 'image'
     ];
     protected $table = "books";
 

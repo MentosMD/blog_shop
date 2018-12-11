@@ -127,7 +127,7 @@ class ChangePassword extends React.Component {
         axios.post(config.API_USER_PASSWORD_UPDATE, {
             password: this.state.password,
             repeat_password: this.state.repeat_password
-        }).then().catch();
+        }).then(data => location.replace('/')).catch();
     }
 
     _onChange(e) {
@@ -282,16 +282,16 @@ export default class Profile extends React.Component {
                         <Tab eventKey={1} title="Profile">
                             <UpdateProfile profile={this.state.profile}/>
                         </Tab>
-                        <Tab eventKey={2} title="Change password">
+                        <Tab eventKey={2} title="Change password" tabClassName="margin-left-15">
                             <ChangePassword/>
                         </Tab>
-                        <Tab eventKey={3} title="Articles">
+                        <Tab eventKey={3} title="Articles" tabClassName="margin-left-15">
                             <Articles articles={this.state.articles}/>
                         </Tab>
-                        <Tab eventKey={4} title="Orders">
+                        <Tab eventKey={4} title="Orders" tabClassName="margin-left-15">
                             <Orders orders={this.state.orders}/>
                         </Tab>
-                        <Tab eventKey={5} title="Delete">
+                        <Tab eventKey={5} title="Delete" tabClassName="margin-left-15">
                              <button className="btn btn-outline-danger" onClick={this._deleteProfile}>Delete</button>
                         </Tab>
                     </Tabs>
