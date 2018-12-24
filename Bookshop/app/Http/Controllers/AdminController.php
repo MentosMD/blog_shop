@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
-    public function getAllBook()
+    public function getAllBook(Request $request)
     {
         $books = Book::all();
         return response()->json(['Success' => 'OK', 'response' => $books], 200);
