@@ -2,22 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Blog;
-use App\Comment;
+use App\Book;
+use App\Customer;
+use App\Order;
 use App\Profile;
-use App\User;
+use App\Blog;
+use Faker\Provider\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
-    public function getAll()
+    public function getAllBlogs(Request $request)
     {
         $blogs = Blog::all();
         return response()->json(['success' => 'OK', 'response' => $blogs], 200);
     }
 
-    public function getById(Request $request, $id)
+    public function getByIdBlog(Request $request, $id)
     {
         $find = \DB::table('blog')->find($id);
         if($find == null) {
@@ -26,7 +30,7 @@ class AdminController extends Controller
         return response()->json(['success' => 'OK', 'response' => $find], 200);
     }
 
-    public function delete(Request $request, $id)
+    public function deleteBlog(Request $request, $id)
     {
         \DB::table('blog')->where('id', $id);
         return response()->json(['succes' => 'OK'], 200);
@@ -54,7 +58,7 @@ class AdminController extends Controller
         return response()->json(['success' => 'OK'], 200);
     }
 
-    public function users()
+    public function users(Request $request)
     {
         $users = Profile::all();
         return response()->json(['success' => 'ok', 'response' => $users]);

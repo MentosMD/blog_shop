@@ -58,13 +58,13 @@ Route::get('/api/v1/profile/detail/{id}', 'ProfileController@profileDetail');
 
 /* Admin's routers */
 Route::prefix('api/v1')->group(function () {
-    Route::get('admin/blog/all', 'AdminBlogController@getAll');
-    Route::get('admin/blog/get/{id}', 'AdminBlogController@getById');
-    Route::post('admin/blog/add', 'AdminBlogController@addBlog');
-    Route::get('admin/blog/delete/{id}', 'AdminBlogController@delete');
-    Route::get('admin/user/all', 'AdminBlogController@users');
-    Route::get('admin/user/delete/{id}', 'AdminBlogController@deleteUser');
-    Route::get('admin/user/detail/{id}', 'AdminBlogController@detailUser');
-    Route::get('admin/user/block/{id}', 'AdminBlogController@blockUser');
-    Route::get('admin/user/unblock/{id}', 'AdminBlogController@unblockUser');
+    Route::get('admin/blog/all', 'AdminController@getAllBlogs');
+    Route::get('admin/blog/get/{id}', 'AdminController@getByIdBlog');
+    Route::post('admin/blog/add', 'AdminController@addBlog');
+    Route::get('admin/blog/delete/{id}', 'AdminController@delete');
+    Route::get('admin/user/all', 'AdminController@users');
+    Route::get('admin/user/delete/{id}', 'AdminController@deleteUser');
+    Route::get('admin/user/detail/{id}', 'AdminController@detailUser');
+    Route::get('admin/user/block/{id}', 'AdminController@blockUser');
+    Route::get('admin/user/unblock/{id}', 'AdminController@unblockUser');
 });
