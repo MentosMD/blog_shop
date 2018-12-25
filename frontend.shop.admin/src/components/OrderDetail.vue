@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <v-head></v-head>
-        <b-modal ref="ModalRef" hide-footer :title="customer.name">
+        <b-modal ref="ModalRef" hide-footer :title="profile.firstname">
             <div class="d-block text-center">
                 <div class="row order-block margin-top-15" v-for="cart in carts">
                      <h4 class="order-block-title text-info">{{ cart.title }}</h4>
@@ -12,11 +12,12 @@
         </b-modal>
         <div class="container text-align-center padd-top-55">
             <h3 class="text-info txt">ID: {{ this.order.id }}</h3>
-            <h3 class="text-info txt">Name: {{ this.customer.name }}</h3>
-            <h3 class="text-info txt">Phone: {{ this.customer.phone }}</h3>
-            <h3 class="text-info txt">Address: {{ this.customer.address }}</h3>
-            <h3 class="text-info txt">City: {{ this.customer.city }}</h3>
-            <h3 class="text-info txt">Email: {{ this.customer.email }}</h3>
+            <h3 class="text-info txt">First name: {{ this.profile.firstname }}</h3>
+            <h3 class="text-info txt">Last name: {{ this.profile.lastname }}</h3>
+            <h3 class="text-info txt">Phone: {{ this.profile.phone }}</h3>
+            <h3 class="text-info txt">Address: {{ this.profile.address }}</h3>
+            <h3 class="text-info txt">City: {{ this.profile.city }}</h3>
+            <h3 class="text-info txt">Email: {{ this.profile.email }}</h3>
             <h3 class="text-info txt">OrderDate: {{ this.order.OrderDate }}</h3>
             <h3 class="text-info txt">Quantity: {{ this.order.OrderQuantity }}</h3>
             <h3 class="text-info txt">Total: {{ this.order.OrderTotal }}$</h3>
@@ -45,7 +46,7 @@
         data(){
             return{
                 order: {},
-                customer: {},
+                profile: {},
                 carts: []
             }
         },
@@ -55,7 +56,7 @@
                     let self = this;
                     let res = data.data.response;
                     self.order = res.order;
-                    self.customer = res.customer;
+                    self.profile = res.profile;
                     self.carts = JSON.parse(data.data.response.order.cart);
                 }).catch((err) => {
                    console.log(err);

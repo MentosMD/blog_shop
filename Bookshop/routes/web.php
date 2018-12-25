@@ -22,7 +22,7 @@ Route::post('/api/book/comment/add', 'CommentController@add');
 
 /* Admin's routers */
 Route::prefix('api/admin')->group(function (){
-    Route::get('books', 'AdminController@getAllBook');
+    Route::get('books', 'AdminController@getAllBooks');
     Route::get('book/detail/{id}', 'AdminController@getDetailBook');
     Route::post('book/add', 'AdminController@addBook');
     Route::post('book/update', 'AdminController@updateBook');

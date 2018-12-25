@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\Customer;
 use App\Order;
+use App\Blog;
+use App\Profile;
+use App\User;
 use Faker\Provider\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -13,7 +16,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
-    public function getAllBook(Request $request)
+    public function getAllBooks(Request $request)
     {
         $books = Book::all();
         return response()->json(['Success' => 'OK', 'response' => $books], 200);
